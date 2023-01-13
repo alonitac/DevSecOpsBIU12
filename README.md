@@ -8,7 +8,7 @@
 - Working env:
     - Working with Git.
     - Submitting exercises to our shared GitHub repo.
-    - Pycharm is recommended (VScode is ok).
+    - Pycharm is recommended (VScode is bad).
 - Module books:
     - https://tldp.org/LDP/Bash-Beginners-Guide/Bash-Beginners-Guide.pdf
     - https://tldp.org/LDP/abs/abs-guide.pdf
