@@ -1,5 +1,11 @@
 # Session I (13/1)
 
+### Mandatory for all students
+
+- Complete the module onborading - install Git, Pycharm, create GitHub account.
+
+### General topics
+
 - Waterfall model vs Agile
 - Git vs GitHub
 - Relative vs absolute Linux paths
