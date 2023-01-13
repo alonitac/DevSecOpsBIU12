@@ -12,7 +12,7 @@
 
 ### Understanding `sudo`
 
-Execute the following comands from you hone (`~`) directory.
+Execute the following comamnds from your home (`~`) directory.
 
 1. Create a new linux user in your system.
 2. Use `sudo` to switch to the new created user (`-u` flag) and try to `mkdir` some new dir. 
