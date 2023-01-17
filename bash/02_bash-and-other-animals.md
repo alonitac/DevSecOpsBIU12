@@ -12,6 +12,8 @@ The file `/etc/shells` gives an overview of known shells on a Linux system:
 cat /etc/shells
 ```
 
+An example of a shell called "Restricted Bash": 
+
 ```shell
 rbash     # this command creates a new terminal session of restricted bash which may be looked exactly like bash terminal 
 cd /var
@@ -20,7 +22,9 @@ cd /var
 Your default shell is set in the `/etc/passwd` file for each user.
 
 ```shell
-cat /etc/passwd | grep root
+# to know your current Linux user, echo the following environment variable
+echo $USER
+cat /etc/passwd | grep $USER
 ```
 
 ### Which shell should run the script?
@@ -35,6 +39,9 @@ the command interpreter indicated.
 
 Note that the path given at the "sha-bang" must be correct, otherwise an error message -- usually "Command
 not found." -- will be the only result of running the script.
+
+Copy and execute the following snippet to a `.sh` file in your local Linux machine.
+
 
 ```shell
 #!/bin/bash

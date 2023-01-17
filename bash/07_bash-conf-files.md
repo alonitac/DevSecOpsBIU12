@@ -5,6 +5,8 @@
 When invoked, Bash reads the `/etc/profile` instructions. These usually set the shell variables PATH, USER etc. All settings that you want to apply to all your users' environments should be in this file. On systems offering multiple types of shells, it might be better to put Bash-specific configurations in `/etc/bash.bashrc` file,
 since `/etc/profile` is also read by other shells.
 
+Explore the content of each file yourself:
+
 ```shell
 cat /etc/profile
 ```
@@ -14,6 +16,14 @@ cat /etc/bash.bashrc
 ```
 
 ### The `~/.bash*` file family
+
+Your HOME directory contains set for configuration files used by bash:
+
+```shell
+cd $HOME
+ls .bash*
+```
+
 `.bash_profile` is the preferred configuration file for configuring user environments individually. In this file, users can
 add extra configuration options or change default settings.
 
@@ -21,6 +31,6 @@ add extra configuration options or change default settings.
 
 `.bash_logout` and `.bash_login` are executed by the command interpreter for logout, login shells.
 
-`.bashrc` or `~/.profile` may also be used (In the absence of `~/.bash_profile` and `~/.bash_login`, `~/.profile` is read).
+`.bashrc` or `.profile` may also be used (In the absence of `~/.bash_profile` and `~/.bash_login`, `~/.profile` is read).
 
 

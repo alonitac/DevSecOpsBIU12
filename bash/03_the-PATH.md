@@ -14,7 +14,7 @@ echo
 echo $PATH
 ```
 
-Let's create a shell program and add it to your $PATH
+Let's create a shell program and add it to your $PATH. Execute the following commands line by line:
 
 ```shell
 # Create a directory to be added to the PATH
@@ -47,7 +47,7 @@ cp myscript ~/scripts/myscript
 # Add ~/scripts to the PATH
 PATH=$PATH:~/scripts
 
-echo "Testing the script as if it was a regulat command"
+echo "Testing the script as if it was a regular command"
 
 # Execute you script
 myscript
@@ -60,10 +60,4 @@ Having written the script, you can invoke it:
   `chmod u+x myscriot` or `chmod 555 myscript`.
   Then you may execute it by `./myscript`.
 
-- Or you can add you script to a directory in the PATH as invoke it as a "regular" command
-
-### Bash execution in terms of processes 
-
-When a program is executed, a **new process** is created because Bash makes an exact copy of itself. **This child process has the same environment as its parent**, only the process ID
-number is different. This procedure is called *forking*
-
+- Or you can add your script to a directory in the PATH and invoke it as a "regular" command.

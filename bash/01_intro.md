@@ -13,6 +13,8 @@ The UNIX shell program interprets user commands to the kernel, which are either 
 
 A script to clean up log files (messages, wtmp) in /var/log
 
+Copy and execute the following snippet to a `.sh` file in your local Linux machine.
+
 ```shell
 # Run as root, of course.
 cd /var/log

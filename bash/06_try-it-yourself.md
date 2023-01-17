@@ -2,11 +2,11 @@
 
 
 This exercise will help you to create your first script.
-1. Write a script using your favorite editor. The script should display the path to your homedirectory and
-   the terminal type that you are using. Additionally it shows all the services started up in runlevel 3 on
+1. Write a script using your favorite editor. The script should display the path to your home directory and
+   the terminal type that you are using. Additionally, it shows all the services started up in run level 3 on
    your system. (hint: use HOME, TERM and ls /etc/rc3.d/S*)
 2. Add comments in your script.
-3. Add information for the users of your script.
+3. Add information for the users of your script (using `echo`).
 4. Change permissions on your script so that you can run it.
 5. Run the script in normal mode and in debug mode. It should run without errors.
 6. Make errors in your script: see what happens if you misspell commands, if you leave out the first line

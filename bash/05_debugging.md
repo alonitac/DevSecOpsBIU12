@@ -1,4 +1,5 @@
 ## Debugging scripts
+
 Bash provides extensive debugging features. The most common is to start up the subshell with the `-x` option, which
 will run the entire script in debug mode.
 
