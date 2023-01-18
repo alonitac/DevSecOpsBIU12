@@ -1,3 +1,4 @@
+#!/bin/bash
 echo "Hello $USER"
 
 echo "Update available: $(/usr/lib/update-notifier/apt-check --human-readable)"
@@ -11,6 +12,5 @@ if [ -e ~/.token ]; then
         echo "Warning: .token file has too wide permissions"
     fi
 fi
-
 
 export COURSE_ID=devsecops12
