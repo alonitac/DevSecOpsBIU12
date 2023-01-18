@@ -10,8 +10,6 @@ if [ -e ~/.token ]; then
     if [ $permissions != "600" ]; then
         echo "Warning: .token file has too wide permissions"
     fi
-else
-    echo ".token file does not exist in the home directory"
 fi
 
 
