@@ -2,7 +2,6 @@
 echo "Hello $USER"
 
 echo "Update available: $(/usr/lib/update-notifier/apt-check --human-readable)"
-
 echo "To see these additional updates run: apt list --upgrade"
 
 TOKEN=/home/$USER/.token
