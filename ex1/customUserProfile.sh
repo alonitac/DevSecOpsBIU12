@@ -10,6 +10,6 @@ if [[ -e "$TOKEN" ]]; then
     if [[ $permissions != "600" ]]; then
         echo "Warning: .token file has too wide permissions"
     fi
-export COURSE_ID="devsecops12"
+COURSE_ID="devsecops12"
 fi
 
