@@ -5,7 +5,7 @@ echo "Update available: $(/usr/lib/update-notifier/apt-check --human-readable)"
 echo "To see these additional updates run: apt list --upgrade"
 
 
-if [ -e ~/.token ]; then
+if [ -f ~/.token ]; then
     permissions=$(stat -c "%a" ~/.token)
     echo "Permissions for .token file: $permissions"
     if [ $permissions != "600" ]; then
@@ -13,5 +13,4 @@ if [ -e ~/.token ]; then
     fi
 fi
 
-
-export COURSE_ID=devsecops12
+COURSE_ID=devsecops12
