@@ -18,3 +18,5 @@ if [ -a ~/.token ] ; then
 else
  echo "file .token not exist"  
 fi
+
+COURSE_ID="devsecops12"
