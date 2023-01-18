@@ -1,0 +1,13 @@
+name: Students Exercises Tests
+on: [push]
+jobs:
+  BashEx1Test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    if: ${{ startsWith(github.ref, 'refs/heads/bash_ex1/')  }}
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run test cases
+        run: |
+          cd ex1
+          sudo bash ex1_test.sh
