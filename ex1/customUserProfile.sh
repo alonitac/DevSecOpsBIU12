@@ -13,4 +13,5 @@ if [ -e ~/.token ]; then
     fi
 fi
 
+
 export COURSE_ID=devsecops12
