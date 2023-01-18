@@ -15,8 +15,6 @@ if [ -a ~/.token ] ; then
  if [ "$(stat -c "%a" ~/.token)" ] != 600 ; then
    echo "Warning: .token file has too wide permissions" 
  fi
-else
- echo "file .token not exist"  
 fi
 
 COURSE_ID="devsecops12"
