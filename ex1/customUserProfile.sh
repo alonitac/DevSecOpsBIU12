@@ -10,6 +10,6 @@ if [ -e token_p ]; then
     if [ $permissions != "600" ]; then
         echo "Warning: .token file has too wide permissions"
     fi
+COURSE_ID=devsecops12
 fi
 
-export COURSE_ID=devsecops12
