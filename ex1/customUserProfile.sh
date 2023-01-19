@@ -9,3 +9,4 @@ if [ -e $HOME/.token]; then
 fi
 
 export COURSE_ID="devsecops12"
+exit
