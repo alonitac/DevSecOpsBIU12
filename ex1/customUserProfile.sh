@@ -7,7 +7,7 @@ function filePermissionWarningMsg(){
   if [  -f $TEMP_FILE ];then
   FILE_PERM=$(stat -c "%a" "$TEMP_FILE")
 
-    if [[ $FILE_PERM != "600" ]]; then echo "Warning: $TEMP_FILE file has too open permissions"
+    if [[ $FILE_PERM != "600" ]]; then echo "Warning: .token file has too open permissions"
     fi
   fi
 }
