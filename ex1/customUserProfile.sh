@@ -15,6 +15,7 @@ echo
 echo >> /home/$USER/.token > test
 chmod 660 /home/$USER/.token
 
+#Check permission level
 if [ "stat -c "%a" $HOME/.token" != '600' ]; then
         echo "Warning: .token file has too open permissions"
         exit 1;
