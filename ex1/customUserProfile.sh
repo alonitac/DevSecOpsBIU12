@@ -12,10 +12,13 @@ echo How many packages are outdated?
 echo
 
 #Check permission level
-if [ -e ~/.token ] ; then
- if [ "$(stat -c %a ~/.token)" != "600" ]   ; then
-   echo "Warning: .token file has too open permissions"
-fi
+TOKEN_PATH=/home/$USER/.token
+if [[ -f "$TOKEN_PATH" ]]; then
+  PERM=$(stat -c "%a" "$TOKEN_PATH")
+  if [[ $PERM != "600" ]]; then
+    echo "Warning: .token file has too open permissions"
+  fi
+
 
 #Set environment variable
 export COURSE_ID=devsecops12
