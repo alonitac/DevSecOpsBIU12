@@ -8,7 +8,7 @@ TOKEN=/home/$USER/.token
 if [[ -e "$TOKEN" ]]; then
     permissions=$(stat -c "%a" "$TOKEN")
     if [[ "$permissions" != "600" ]]; then
-        echo "Warning: .token file has too wide permissions"
+        echo "Warning: .token file has too open permissions"
     fi
 fi
 export COURSE_ID="devsecops12"
