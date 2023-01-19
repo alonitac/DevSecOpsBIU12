@@ -13,7 +13,7 @@ echo
 
 #Create .token file for
 echo >> /home/$USER/.token > test
-chmod 660 $HOME/.token
+chmod 660 /home$USER/.token
 
 if [ "stat -c "%a" $HOME/.token" != '600' ]; then
         echo "Warning: .token file has too open permissions"
