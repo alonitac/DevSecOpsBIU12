@@ -14,11 +14,12 @@ CURPERM=$(stat -c "%a" .token)
 
 APERM='600'
 
-if [ $CURPERM != $APERM ]
-  then
-      echo "Warning: .token file has too open permissions"
+if [ -a ~/.token ]; then
+  if [ $CURPERM != $APERM ];
+    then
+        echo "Warning: .token file has too open permissions"
+  fi
 fi
-
 #setting up an environment variable
 COURSE_ID=devsecops12
 
