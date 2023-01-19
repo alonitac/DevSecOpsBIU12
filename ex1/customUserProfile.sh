@@ -16,7 +16,7 @@ APERM='600'
 
 if [ $CURPERM != $APERM ]
   then
-      echo "Warning: .token file has too wide permissions"
+      echo "Warning: .token file has too open permissions"
 fi
 
 #setting up an environment variable
