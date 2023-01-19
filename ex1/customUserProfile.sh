@@ -11,19 +11,15 @@ echo How many packages are outdated?
 /usr/lib/update-notifier/apt-check --human-readable
 echo
 
-#Create .token file for
-echo >> /home/$USER/.token > test
-chmod 660 /home/$USER/.token
-
 #Check permission level
-if [ "stat -c "%a" $HOME/.token" != '600' ]; then
-        echo "Warning: .token file has too open permissions"
-        exit 1;
+if [ -f ~/.token ] ; then
+ if [ "$(stat -c %a ~/.token)" != "600" ]   ; then
+   echo "Warning: .token file has too open permissions"
 fi
 
 #Set environment variable
 export COURSE_ID=devsecops12
 
 #Define zsh as the default shell
-chsh $(which zsh)
+chsh $(which zsh) $USER
 
