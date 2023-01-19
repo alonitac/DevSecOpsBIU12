@@ -22,3 +22,4 @@ fi
 
 # Course variable
 export COURSE_ID="devsecops12"
+fi
