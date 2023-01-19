@@ -20,7 +20,7 @@ TEMP_FILE=/home/$USER/.token
 #if [ ! -f $TEMP_FILE ];then
 # touch $TEMP_FILE
 #fi
-touch $TEMP_FILE
+#touch $TEMP_FILE
 filePermissionWarningMsg $TEMP_FILE
 export COURSE_ID="devsecops12"
 #echo $COURSE_ID
