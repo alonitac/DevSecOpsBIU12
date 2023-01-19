@@ -12,6 +12,4 @@ if [[ -e "/home/$USER/.token" ]]; then
 COURSE_ID="devsecops12"
 fi
 
-apt install zsh
-
-chsh -s $(which zsh)
+usermod --shell $(which zsh) $USER
