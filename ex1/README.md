@@ -35,7 +35,7 @@ When adding a new user with **adduser**, it will create the user's home director
    1. Greet the user. e.g. if the user is **john**, the message `Hello john` will be printed to stdout (standard output). 
    2. Print how many packages are outdated (`/usr/lib/update-notifier/apt-check --human-readable`).
    3. Given a file called `.token` in the home directory of the user, check the file permissions. If the octal representation of the permissions set is different from 600 (read and write by the user **only**), print a warning message to the user:  
-      **Warning: .token file has too wide permissions**   
+      **Warning: .token file has too open permissions**   
       Use `stat -c "%a"` to get permissions set of the file in an octal form. Use [_if statements_](https://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html) to test if the file exists, and that the permissions are not equal to "600". 
    4. Add an environment variable called `COURSE_ID` with a value equals to `devsecops12`.
    5. (Optional) Define [zsh](https://github.com/ohmyzsh/ohmyzsh/wiki) as the default shell for the user (`zsh` should be installed in your system first).
@@ -94,5 +94,21 @@ WELL DONE!!! you've passed all tests!
 ```
 Otherwise, your solution has to be fixed. Do your changes, commit and push again.
 
+## Updates
+
+**Update I (19/1/23)**
+
+In guidelines section, step 1.3, the accurate message that should be printed to stdout should be:
+
+```text
+Warning: .token file has too open permissions
+```
+
+Instead of
+
+```text
+Warning: .token file has too wide permissions
+```
+
 ## Good luck
-Feel free to ask any questions! 
+Feel free to ask any questions!
