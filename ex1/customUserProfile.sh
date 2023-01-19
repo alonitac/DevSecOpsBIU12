@@ -7,4 +7,5 @@ if test -f $HOME/.token; then
    echo "Warning: .token file has too open permissions"
     fi
 fi
+
 export COURSE_ID="devsecops12"
