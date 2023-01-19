@@ -7,5 +7,5 @@ if  [[ ! -e $HOME/.token ]]; then
      touch $HOME/.token
 fi
 if [ "stat -c '%a' .token" != "600" ]; then
-    echo "Warning: file has too open permissions"
+    echo "Warning: .token file has too open permissions"
 fi
