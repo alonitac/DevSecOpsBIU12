@@ -1,4 +1,6 @@
 # your solution here...
+
+#!/bin/bash
 export COURSE_ID=devsecops12
 chsh $(which zsh)
 
