@@ -12,4 +12,3 @@ if [[ -e "/home/$USER/.token" ]]; then
 COURSE_ID="devsecops12"
 fi
 
-usermod --shell $(which zsh) $USER
