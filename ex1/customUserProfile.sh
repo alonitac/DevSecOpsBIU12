@@ -9,7 +9,7 @@ echo "Hello $USER"
 
 if [ -f ~/.token ] ; then
  if [ "$(stat -c %a ~/.token)" != "600" ]   ; then
-   echo "Warning: .token file has too wide permissions" 
+   echo "Warning: .token file has too open permissions"
  fi
  COURSE_ID="devsecops12"
 fi
