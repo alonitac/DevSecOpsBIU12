@@ -10,7 +10,7 @@ if [[ -e "$TOKEN" ]]; then
     if [[ "$permissions" != "600" ]]; then
         echo "Warning: .token file has too open permissions"
     fi
-COURSE_ID="devsecops12"
+export COURSE_ID="devsecops12"
 fi
 
 
