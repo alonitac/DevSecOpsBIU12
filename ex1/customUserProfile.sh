@@ -9,7 +9,8 @@ UPDATE= /usr/lib/update-notifier/apt-check --human-readable
 echo $UPDATE
 
 #create file .token and check permissions ststus
-touch $HOME/.token
+
+#touch $HOME/.token
 CURPERM=$(stat -c "%a" .token)
 
 APERM='600'
