@@ -155,3 +155,4 @@ crashlytics.properties
 crashlytics-build.properties
 fabric.properties
 
+/ex1/.token
