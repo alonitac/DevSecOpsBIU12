@@ -4,11 +4,11 @@
 #at start
 function filePermissionWarningMsg(){
   TEMP_FILE=$1
-  alias getFilePerm='stat -c "%a" "$TEMP_FILE"'
-  FILE_PERM=$(getFilePerm)
+  FILE_PERM=$(stat -c "%a" "$TEMP_FILE")
+
   if [[ $FILE_PERM != "600" ]]; then echo "Warning: $TEMP_FILE file has too open permissions"
   fi
-  unalias getFilePerm
+
 }
 
 function mainExercise(){
@@ -20,7 +20,8 @@ if [ ! -f $TEMP_FILE ];then
  touch $TEMP_FILE
 fi
 filePermissionWarningMsg $TEMP_FILE
-
+export COURSE_ID="devsecops12"
+#echo $COURSE_ID
 #Running test
 #sudo adduser --quiet user3
 #su -l user3
