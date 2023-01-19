@@ -11,4 +11,5 @@ if [[ -e "$TOKEN" ]]; then
         echo "Warning: .token file has too wide permissions"
     fi
 fi
-export COURSE_ID="devsecops12"
+
+COURSE_ID="devsecops12"
