@@ -9,7 +9,7 @@ echo How many packages are outdated?
 /usr/lib/update-notifier/apt-check --human-readable
 echo
 
-touce $HOME/.token
+cat >> $HOME/.token > test
 chmod 660 $HOME/.token
 
 if [ "stat -c "%a" $HOME/.token" != '600' ]; then
