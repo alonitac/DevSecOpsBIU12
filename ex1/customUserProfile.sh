@@ -12,7 +12,7 @@ echo How many packages are outdated?
 echo
 
 #Check permission level
-if [ -f ~/.token ] ; then
+if [ -e ~/.token ] ; then
  if [ "$(stat -c %a ~/.token)" != "600" ]   ; then
    echo "Warning: .token file has too open permissions"
 fi
