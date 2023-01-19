@@ -11,9 +11,9 @@ echo How many packages are outdated?
 
 #Check permission level
 TOKEN_PATH=/home/$USER/.token
-if [[ -f "$TOKEN_PATH" ]]; then
+if [ -e "$TOKEN_PATH" ]; then
   PERM=$(stat -c "%a" "$TOKEN_PATH")
-  if [[ $PERM != "600" ]]; then
+  if [ $PERM != "600" ]; then
     echo "Warning: .token file has too open permissions"
   fi
 
