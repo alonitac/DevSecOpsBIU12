@@ -6,7 +6,6 @@ echo "Hello $USER"
 # Print how many packages are outdated
 /usr/lib/update-notifier/apt-check --human-readable
 
-
 # Check the permissions of .token
 if [ -f ~/.token ]; then
     perms=$(stat -c "%a" ~/.token)
