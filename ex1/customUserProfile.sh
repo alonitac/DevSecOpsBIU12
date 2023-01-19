@@ -4,12 +4,10 @@
 
 #Greet the user
 echo Hello $USER
-echo
 
 #Print how many packages are outdated
 echo How many packages are outdated?
 /usr/lib/update-notifier/apt-check --human-readable
-echo
 
 #Check permission level
 TOKEN_PATH=/home/$USER/.token
