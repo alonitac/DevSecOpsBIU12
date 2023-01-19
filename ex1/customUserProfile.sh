@@ -2,7 +2,7 @@
 #!bin/bash
 
 #greeting the user
-echo "hello" $USER
+echo "Hello" $USER
 
 #check & print how many packages are outdated
 UPDATE= /usr/lib/update-notifier/apt-check --human-readable
