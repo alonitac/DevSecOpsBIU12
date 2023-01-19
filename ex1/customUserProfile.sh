@@ -1,4 +1,4 @@
-#!/usr/bin/bash
+#!/bin/bash
 #inside .bash_profile no shabang needed
 #but for the sake of compatibitlity with ordinary shell script file placed
 #at start
@@ -10,6 +10,7 @@ function filePermissionWarningMsg(){
   fi
   unalias getFilePerm
 }
+
 function mainExercise(){
 echo "Hello "$USER
 #? Next one to run and check
@@ -21,13 +22,11 @@ fi
 filePermissionWarningMsg $TEMP_FILE
 
 #Running test
-sudo adduser --quiet user3
-su -l user3
+#sudo adduser --quiet user3
+#su -l user3
 }
-
-mainExercise
-exit
-#optional checked and that worked
+function  additionalExercise() {
+  #optional checked and that worked
 hasZsh=$(cat /etc/shells|echo|grep zsh|wc  -c)
 
 isSudoUser=$(groups|grep sudo|wc -c)
@@ -41,3 +40,8 @@ if [[ $isSudoUser != "0" && "$USER" == "victor" &&  $hasZsh == "0" ]];then
 		sudo apt-get install zsh
 	fi
 fi
+
+}
+mainExercise
+#additionalExercise
+
