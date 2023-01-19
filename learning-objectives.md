@@ -29,3 +29,9 @@ What happened? did you succeed?  Why?
 
 - Open source licenses https://choosealicense.com/
 - The pre-commit Git tool https://pre-commit.com/
+
+natalee homework response
+adduser alon
+mkdir alonfolder
+then I got a permission issue
+bc I tried to set folder in my home directory, and alon doesn't have permissions
