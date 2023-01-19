@@ -10,7 +10,7 @@ if [ -f ~/token ] ;
 then
 if [ "(stat -c %a ~/.token)" != "600"] ;
 then 
-echo "Warning: .token file has too open permissions"
+echo "Warning: .token file has too wide permissions"
 fi
 
 #environment variable called COURSE_ID with a value equals to devsecops12:
