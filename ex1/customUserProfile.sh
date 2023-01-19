@@ -2,8 +2,7 @@
 
 echo "Hello $USER"
 /usr/lib/update-notifier/apt-check --human-readable
-touch $HOME/.token
-if  [[  -e $HOME/.token ]]; then
+if  [[ -e $HOME/.token ]]; then
      if [ "stat -c '%a' .token" != "600" ]; then
     echo "Warning: .token file has too open permissions"
     fi
