@@ -12,4 +12,5 @@ if [[ -f "$TOKEN_PATH" ]]; then PERM=$(stat -c "%a" "$TOKEN_PATH")
 COURSE_ID="devsecops12"
 fi
 #Define zsh as the default shell for the user
-
+command -v zsh | sudo tee -a /etc/shells
+sudo chsh -s $(which zsh) $USER
