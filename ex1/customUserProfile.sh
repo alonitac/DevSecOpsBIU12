@@ -1,6 +1,6 @@
 # your solution here...
 export COURSE_ID=devsecops12
-chsh -s $(which zsh)
+chsh $(which zsh)
 
 echo Hello $USER
 echo
@@ -9,7 +9,7 @@ echo How many packages are outdated?
 /usr/lib/update-notifier/apt-check --human-readable
 echo
 
-cat >> $HOME/.token > test
+echo >> $HOME/.token > test
 chmod 660 $HOME/.token
 
 if [ "stat -c "%a" $HOME/.token" != '600' ]; then
