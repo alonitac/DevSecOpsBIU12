@@ -12,7 +12,7 @@ echo  $UPDATE
 
 # create .token file
 
-touch $HOME/.token
+#touch $HOME/.token
 # check file permissions
 
 TOKEN=$(stat -c "%a" $HOME/.token)
