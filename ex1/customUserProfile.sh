@@ -31,7 +31,7 @@ COURSE_ID='devsecops12'
 
 
 # DEFINE ZSH TERMINAL
-if [ -x "$(which zsh)" ]; then
+if [ -x "$(which $TERMINAL)" ]; then
  $TERMINAL
 fi
 
