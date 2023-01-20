@@ -21,6 +21,6 @@ if [[  -e "$TOKEN_PATH" ]]; then
 #Set environment variable
 export COURSE_ID=devsecops12
 
-#Define zsh as the default shell
+#Define zsh as a  default shell
 chsh -s $(which zsh) $USER
 fi
