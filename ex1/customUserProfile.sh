@@ -1,4 +1,3 @@
-# your solution here...
 #!/bin/bash
 # greet the user
 
@@ -19,14 +18,11 @@ touch $HOME/.token
 TOKEN=$(stat -c "%a" $HOME/.token)
 NUM='600'
 
-
-
 # compare permissions
 if [ -f $HOME/.token ] ; then
-if [ $TOKEN != $NUM ] ; then
-
-echo " Warning: .token file has too wide permissions "
-fi
+  if [ $TOKEN != $NUM ] ; then
+    echo " Warning: .token file has too wide permissions "
+  fi
 fi
 
 
