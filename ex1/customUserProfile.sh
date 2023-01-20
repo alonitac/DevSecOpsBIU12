@@ -18,7 +18,7 @@ echo
 # CHECK IF THE TOKEN IS EXIST
 if [[ -e $TOKEN ]]; then
     # File exist, continue with checks
-    if [ $(stat -c "%a" "$TOKEN") -ne 600 ]; then
+    if [[ $(stat -c "%a" "$TOKEN") -ne 600 ]]; then
         # File is existed and protected
         echo "Warning: $TOKEN file has too open permissions"
     fi
@@ -33,4 +33,5 @@ export COURSE_ID="devsecops12"
 # DEFINE ZSH TERMINAL
 if [[ -e "$TERMINAL" ]]; then
     $TERMINAL -0
+fi
 # END OF SCRIPT
