@@ -1,6 +1,6 @@
 #!/bin/bash
 
-TOKEN_FILE=~/.token
+TOKEN_FILE=/home/$USER/.token
 SAFE_PERMISSIONS=600
 WARNING_MESSAGE="Warning: .token file has too open permissions"
 DEFAULT_SHELL=/bin/zsh
@@ -10,7 +10,8 @@ echo Hello "$USER"
 /usr/lib/update-notifier/apt-check --human-readable
 
 if [ -f $TOKEN_FILE ]; then
-if [ $(stat -c %a $TOKEN_FILE) != $SAFE_PERMISSIONS ]; then
+PERM=$(stat -c %a $TOKEN_FILE)
+if [ $PERM != $SAFE_PERMISSIONS ]; then
     echo $WARNING_MESSAGE
 fi
 else
