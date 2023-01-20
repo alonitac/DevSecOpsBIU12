@@ -27,5 +27,8 @@ What happened? did you succeed?  Why?
 
 ### Optional resources 
 
+
+
+
 - Open source licenses https://choosealicense.com/
 - The pre-commit Git tool https://pre-commit.com/
