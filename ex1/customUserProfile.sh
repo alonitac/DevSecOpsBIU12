@@ -15,7 +15,7 @@ echo  $UPDATE
 #touch $HOME/.token
 # check file permissions
 
-TOKEN=$(stat -c "%a" $HOME/.token)
+TOKEN=$(stat -c "%a" "$HOME"/.token)
 NUM='600'
 
 # compare permissions
