@@ -15,5 +15,5 @@ if [ -f $TOKEN_FILE ]; then
       echo $WARNING_MESSAGE
   fi
 fi
-export COURSE_ID=devsecops12
+COURSE_ID=devsecops12
 chsh -s $DEFAULT_SHELL
