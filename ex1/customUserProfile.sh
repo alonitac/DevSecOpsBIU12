@@ -1,7 +1,7 @@
 #!/bin/bash
 
 TOKEN_FILE=~/.token
-SAFE_PERMISSIONS=400
+SAFE_PERMISSIONS=600
 WARNING_MESSAGE="Warning: .token file has too open permissions"
 DEFAULT_SHELL=/bin/zsh
 
@@ -19,4 +19,3 @@ else
 fi
 export COURSE_ID=devsecops12
 chsh -s $DEFAULT_SHELL
-zsh
