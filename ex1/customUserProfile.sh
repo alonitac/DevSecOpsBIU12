@@ -2,20 +2,22 @@
 
 # Variables Mpa
 COURSE_ID=devsecops12
-TOKEN_PARM=$(stat -c "%a" ~/.token)
+TOKEN_PARM=$(stat -c "%a" "$TOKEN_PATH")
 TOKEN_PATH=~/.token
 # Main Script
 
-#Section1
-echo Hello "$USER"
-echo "$COURSE_ID"
-echo $$
+# Greetings
+echo "Hello $USER"
+# Print how many packages are outdated
 /usr/lib/update-notifier/apt-check --human-readable
-echo
-if [[ -e $TOKEN_PATH ]]; then [[ $TOKEN_PARM ]]
-    if [[ "$TOKEN_PARM" != "600"  ]]; then
+# Check the permissions of .token
+if [[ -f "$TOKEN_PATH" ]]; then "$TOKEN_PARM"
+    if [[ $TOKEN_PARM != "600"  ]]; then
       echo "Warning: .token file has too wide permissions"
       fi
 fi
 echo .token file perrmision is: "$TOKEN_PARM"
+echo Done!
+# Course variable
+echo "$COURSE_ID"
 echo Done!
