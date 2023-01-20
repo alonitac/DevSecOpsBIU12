@@ -2,7 +2,7 @@
 
 # CONST
 TOKEN="/home/$USER/.token"
-TERMINAL="$(which zsh)"
+TERMINAL="zsh"
 
 
 
@@ -18,9 +18,9 @@ echo
 # CHECK IF THE TOKEN IS EXIST
 if [[ -e $TOKEN ]]; then
     # File exist, continue with checks
-    if [[ $(stat -c "%a" "$TOKEN") -ne 600 ]]; then
+    if [ $(stat -c "%a" "$TOKEN") -ne 600 ]; then
         # File is existed and protected
-        echo "Warning: $TOKEN file has too open permissions"
+        echo "Warning: $(echo $TOKEN | awk -F/ '{print $NF}') file has too open permissions"
     fi
 fi
 echo
@@ -31,7 +31,8 @@ export COURSE_ID="devsecops12"
 
 
 # DEFINE ZSH TERMINAL
-if [[ -e "$TERMINAL" ]]; then
-    $TERMINAL -0
+if [ -x "$(which zsh)" ]; then
+ $TERMINAL
 fi
+
 # END OF SCRIPT
