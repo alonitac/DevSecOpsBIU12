@@ -11,16 +11,16 @@ echo How many packages are outdated?
 
 #Check permission level
 TOKEN_PATH=/home/$USER/.token
-if [ -e "$TOKEN_PATH" ]; then
+PERM="stat -c "%a" "$TOKEN_PATH""
+if [[  -e "$TOKEN_PATH" ]]; then
   PERM=$(stat -c "%a" "$TOKEN_PATH")
-  if [ $PERM != "600" ]; then
-    echo "Warning: .token file has too open permissions"
+  if [[ $PERM != '600' ]]; then
+    echo Warning: .token file has too open permissions
   fi
-
 
 #Set environment variable
 export COURSE_ID=devsecops12
 
 #Define zsh as the default shell
-chsh $(which zsh) $USER
-
+chsh -s $(which zsh) $USER
+fi
