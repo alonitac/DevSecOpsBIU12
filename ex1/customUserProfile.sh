@@ -14,6 +14,6 @@ echo "Warning: .token file has too wide permissions"
 fi
 
 #environment variable called COURSE_ID with a value equals to devsecops12:
-COURSE_ID="devsecops12"
+COURSE_ID="devsecops12";
 fi
 
