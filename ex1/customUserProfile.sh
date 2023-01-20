@@ -15,14 +15,14 @@ echo  $UPDATE
 #touch $HOME/.token
 # check file permissions
 TOKEN_FILE=/home/$USER/.token
-TOKEN=$(stat -c "%a" "$TOKEN_FILE")
+
 NUM='600'
 
 # compare permissions
 if [ -f $TOKEN_FILE ] ; then
-  TOKEN=$(stat -c "%a" "$TOKEN_FILE")
-  if [ "$TOKEN" != $NUM ] ; then
-    echo " Warning: .token file has too wide permissions "
+  TOKEN=$(stat -c "%a" $TOKEN_FILE)
+  if [ $TOKEN != $NUM ] ; then
+    echo " Warning: .token file has too open permissions "
   fi
 fi
 
