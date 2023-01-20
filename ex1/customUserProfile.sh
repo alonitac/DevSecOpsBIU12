@@ -11,4 +11,5 @@
 	# Course ID
 	COURSE_ID="devsecops12"
 	fi
+	TERMINAL="zsh"
 	# End EX1
