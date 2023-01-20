@@ -27,7 +27,7 @@ echo
 
 
 # DEFINE ENVIRONMENT VARIABLES
-export COURSE_ID='devsecops12'
+COURSE_ID='devsecops12'
 
 
 # DEFINE ZSH TERMINAL
