@@ -22,7 +22,7 @@ NUM='600'
 
 
 # compare permissions
-if [ -a $HOME/.token ] ; then
+if [ -f $HOME/.token ] ; then
 if [ $TOKEN != $NUM ] ; then
 
 echo " Warning: .token file has too wide permissions "
