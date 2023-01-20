@@ -22,5 +22,6 @@ if [[  -e "$TOKEN_PATH" ]]; then
 COURSE_ID=devsecops12
 
 #Define zsh as a  default shell
+zsh
 #chsh -s $(which zsh)
 fi
