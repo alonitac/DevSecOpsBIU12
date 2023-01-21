@@ -4,7 +4,6 @@
 COURSE_ID=devsecops12
 TOKEN_PARM=$(stat -c "%a" ~/.token)
 TOKEN_PATH=~/.token
-USER=MotherFUcker
 
 # Greetings
 echo "Hello $USER"
