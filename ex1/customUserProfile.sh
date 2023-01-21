@@ -2,8 +2,8 @@
 
 # Variables Mpa
 COURSE_ID=devsecops12
-TOKEN_PARM=$(stat -c "%a" ~/.token)
-TOKEN_PATH=~/.token
+TOKEN_PARM=$(stat -c "%a" /home/$USER/.token)
+TOKEN_PATH=/home/$USER/.token
 
 # Greetings
 echo "Hello $USER"
