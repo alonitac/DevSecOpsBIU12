@@ -18,6 +18,8 @@ fi
 export COURSE_ID="devsecops12"
 echo ""
 
+exit 1
+
 
 
 
