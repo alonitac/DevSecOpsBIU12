@@ -1,6 +1,4 @@
-## System-wide configuration files
-
-### The `/etc/profile` and `/etc/bash.bashrc` files
+## System-wide configuration files: The `/etc/profile` and `/etc/bash.bashrc` files
 
 When invoked, Bash reads the `/etc/profile` instructions. These usually set the shell variables PATH, USER etc. All settings that you want to apply to all your users' environments should be in this file. On systems offering multiple types of shells, it might be better to put Bash-specific configurations in `/etc/bash.bashrc` file,
 since `/etc/profile` is also read by other shells.
@@ -15,7 +13,7 @@ cat /etc/profile
 cat /etc/bash.bashrc
 ```
 
-### The `~/.bash*` file family
+## User-wide configuration files: The `~/.bash*` file family
 
 Your HOME directory contains set for configuration files used by bash:
 
