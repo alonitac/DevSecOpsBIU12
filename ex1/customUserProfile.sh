@@ -9,9 +9,11 @@ echo ""
 /usr/lib/update-notifier/apt-check --human-readable 
 echo ""
 
-#now we check if there is .token file at home directory if yes will check permissions  
-if [ "$(stat -c "%a" ~/.token)" != "600" ]
+#now we check if there is .token file at home directory if yes will check permissions
+if [ -e ~/.token  ]
+then if [ "$(stat -c "%a" ~/.token)" != "600" ]
  then echo "Warning: .token file has too open permissions"
+fi
 fi
 
 #environment variable called COURSE_ID with a value equals to devsecops12:
