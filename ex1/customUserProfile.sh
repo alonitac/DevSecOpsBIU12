@@ -12,7 +12,7 @@ echo ""
 #now we check if there is .token file at home directory if yes will check permissions
 if [ -e ~/.token  ]
 then if [ "$(stat -c "%a" ~/.token)" != "600" ]
- then echo "Warning: .token file has too open permissions"
+ then echo Warning: .token file has too open permissions
 fi
 fi
 
