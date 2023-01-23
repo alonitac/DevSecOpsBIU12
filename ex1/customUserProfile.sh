@@ -6,7 +6,7 @@ FILE=".token"
 D_SHELL="zsh"
 
 #greetings
-echo -e "hello $USER \n"
+echo -e "Hello $USER \n"
 
 #print if packages to be updated
 echo -e "$($APTPATH/apt-check --human-readable) \n"
