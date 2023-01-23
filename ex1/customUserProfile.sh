@@ -8,7 +8,7 @@ D_SHELL="zsh"
 #greetings
 echo -e "hello $USER \n"
 
-#print
+#print if packages to be updated if any
 echo -e "$($APTPATH/apt-check --human-readable) \n"
 
 # .token file permission check
