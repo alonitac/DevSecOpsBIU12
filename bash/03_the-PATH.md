@@ -1,4 +1,11 @@
-# The `$PATH`
+# Environment variables
+
+Global variables or **environment variables** are available in all shells. The **env** or **printenv** commands can be
+used to display environment variables.
+
+Global variables are being transferred from parent process to child program (will be discussed later on...).
+
+# The `$PATH` environment variable
 
 When you want the system to execute a command, you almost never have to give the full path to that
 command. For example, we know that the `ls` command is in the `/bin` directory (check with `which -a ls`),
