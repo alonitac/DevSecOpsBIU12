@@ -1,11 +1,20 @@
-# Cloning our shared repo from GitHub to your local machine
-
-In order to experiment with Git and submit exercises, you need to clone (copy) the remote repository located in GitHub, into your local machine. We will discuss Git in detail in future classes, but for now let's clone it as a first step. 
-
-Although cloning a repo can be done via the `git clone` command, we will use Pycharm UI in order to do that. Please read carefully [Pycharm docs](https://www.jetbrains.com/help/pycharm/cloning-repository.html) regarding how to clone a Git repository directly into your PyCharm as a new project. 
-Then clone our shared Git repository. 
-
-The repository URL is: https://github.com/alonitac/DevSecOpsBIU12.git
-
-
-
+#!/bin/bash
+MyId=$(id -gn)
+echo Hello $MyId
+cd /usr/lib/update-notifier
+./apt-check
+echo '' 'update can be applied immediately.'
+echo To see these additional updates run : apt-list --upgrade
+if [[ -f "/home/.token"]]
+then
+echo ".token is found"
+else
+echo ".token is not found"
+fi
+per=$(stat -c %a "/home/.token")
+if [ "$per" != "$600" ];
+then
+echo Warning: .token file has too wide permissions
+fi
+cd
+export COURSE_ID=devsecops12
