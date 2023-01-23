@@ -3,9 +3,10 @@
 APTPATH="/usr/lib/update-notifier"
 USERHOME=$HOME
 FILE=".token"
+D_SHELL="zsh"
 
 #greetings
-echo -e "hello $USERNAME \n"
+echo -e "hello $USER \n"
 
 #print
 echo -e "$($APTPATH/apt-check --human-readable) \n"
@@ -21,6 +22,7 @@ fi
 COURSE_ID='devsecops12'
 
 #Set ZSH as default shell
+c
 
 #exit program
 exit 0
