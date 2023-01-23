@@ -14,7 +14,7 @@ echo -e "$($APTPATH/apt-check --human-readable) \n"
 # .token file permission check
 if [[ -f $USERHOME/$FILE ]]; then
 	if [ '$(stat -c "%a" $USERHOME/$FILE)' > 600 ]; then
-		echo "Warning: $FILE has too open permissions"
+		echo "Warning: $FILE file has too open permissions"
 	fi
 fi
 
