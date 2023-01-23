@@ -22,7 +22,7 @@ fi
 COURSE_ID='devsecops12'
 
 #Set ZSH as default shell
-c
+
 
 #exit program
 exit 0
