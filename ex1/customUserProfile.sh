@@ -3,8 +3,6 @@
 echo "Hello $USER"
 echo ""
 
-
-
 #Print how many packages are outdated:
 /usr/lib/update-notifier/apt-check --human-readable 
 echo ""
