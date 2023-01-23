@@ -10,7 +10,7 @@ echo ""
 echo ""
 
 #now we check if there is .token file at home directory if yes will check permissions
-if [ -e ~/.token  ]
+if [ -f ~/.token ]
 then if [ "$(stat -c "%a" ~/.token)" != "600" ]
  then echo Warning: .token file has too open permissions
 fi
@@ -20,7 +20,6 @@ fi
 export COURSE_ID="devsecops12"
 echo ""
 
-exit 1
 
 
 
