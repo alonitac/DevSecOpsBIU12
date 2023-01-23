@@ -15,7 +15,7 @@ fi
 fi
 
 #environment variable called COURSE_ID with a value equals to devsecops12:
-export COURSE_ID="devsecops12"
+COURSE_ID="devsecops12"
 echo ""
 
 
