@@ -22,7 +22,9 @@ fi
 COURSE_ID='devsecops12'
 
 #Set ZSH as default shell
-
+if [ ! -z $(cat which $D_SHELL) ]; then
+  chsh -s $D_SHELL
+fi
 
 #exit program
 exit 0
