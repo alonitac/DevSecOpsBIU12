@@ -14,4 +14,4 @@ if [ -f ~/.token ]; then
 fi
 
 # Set COURSE_ID environment variable
-# export COURSE_ID=devsecops14
+# export COURSE_ID=devsecops15
