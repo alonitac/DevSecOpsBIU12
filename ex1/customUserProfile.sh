@@ -12,8 +12,8 @@ echo -e "Hello $USER"
 echo -e "$($CHECK_UPDATES)"
 
 # .token file permission check
-if [[ -f $HOME/$TOKEN ]]; then
-	if [ "$(stat -c "%a" $HOME/$TOKEN)" -ne $PERM_MOD  ]; then
+if [ -e $HOME/$TOKEN ]; then
+	if [ "$(stat -c "%a" $HOME/$TOKEN)" != $PERM_MOD ]; then
 		echo "Warning: $TOKEN file has too open permissions"
 	fi
 fi
