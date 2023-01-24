@@ -10,6 +10,6 @@ if [ -f ~/.token ]; then
   permissions=$(stat -c "%a" ~/.token)
   if [ "$permissions" != "600" ]; then
     echo "Warning: .token file has too open permissions"
-fi1
+fi11
 # Set COURSE_ID environment variable
 # export COURSE_ID=devsecops12
