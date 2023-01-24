@@ -9,7 +9,7 @@
     then
        echo  .token file is found
     else
-       exit
+       .token file is not found
     fi
     per=$(stat -c %a /home/.token)
     if [ "$per" != "$600" ];
