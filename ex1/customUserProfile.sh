@@ -7,6 +7,6 @@ echo "Warning: .token file has too open permissions"
 fi
 fi
 export COURSE_ID=devsecops12
-chsh -s /bin/zsh #makes zsh default shell in the next logon
-zsh #switched immediately to zsh shell
+# chsh -s /bin/zsh #makes zsh default shell in the next logon
+# zsh #switched immediately to zsh shell
 
