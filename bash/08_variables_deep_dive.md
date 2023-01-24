@@ -143,7 +143,7 @@ Global variables are being transferred from parent process to child process.
 Positional variables (or arguments) passed to the script from the command line: $0, $1, $2, $3 . . .
 
 $0 is the name of the script itself, $1 is the first argument, $2 the second, $3 the third, and so forth.
-After $9, the arguments must be enclosed in brackets, for example, ${10}, ${11}, ${12}.
+After \$9, the arguments must be enclosed in brackets, for example, \${10}, \${11}, \${12}.
 
 Let's see them in action... create a file called `positional.sh` as follows:
 
