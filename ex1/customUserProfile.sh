@@ -6,7 +6,7 @@ echo "Hello $USER"
 
 if [[ -f /home/$USER/.token ]]; then
    if [[ "stat -c '%a' /home/$USER/.token" != "600" ]]; then
-     echo "Warning:.token file has too open permissions"
+     echo "Warning: .token file has too open permissions"
    fi
 fi
 COURSE_ID="devsecops12"
