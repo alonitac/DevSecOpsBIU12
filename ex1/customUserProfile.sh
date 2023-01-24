@@ -2,7 +2,7 @@
     MyId=$(id -gn)
     echo Hello $MyId
     cd /usr/lib/update-notifier
-    ./apt-check
+    ./apt-check --human-readable
     echo '' 'update can be applied immediately.'
     echo To see these additional updates run : apt-list --upgrade
     if ! test -f /home/.token
