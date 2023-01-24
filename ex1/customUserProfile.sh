@@ -1,10 +1,12 @@
+
 #!/bin/bash
 
 echo "Hello $USER"
 /usr/lib/update-notifier/apt-check --human-readable
-if [[ -f $HOME/.token ]]; then
+
+if [[ -f /home/$USER/.token ]]; then
    if [[ "stat -c '%a' /home/$USER/.token" != "600" ]]; then
-     echo "Warning: .token file has too open permissions"
+     echo "Warning:.token file has too open permissions"
    fi
 fi
 COURSE_ID="devsecops12"
