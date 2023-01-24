@@ -1,4 +1,4 @@
-# Default profile for new Linux Users
+nma# Default profile for new Linux Users
 
 In this exercise, you will implement a bash script which applies default Bash profile configurations for new added Linux users.
 
