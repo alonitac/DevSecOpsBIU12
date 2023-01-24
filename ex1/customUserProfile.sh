@@ -3,19 +3,17 @@
 CHECK_UPDATES="/usr/lib/update-notifier/apt-check --human-readable)"
 TOKEN=".token"
 D_SHELL="zsh"
+PERM_MOD=600
 
 #greetings
 echo -e "Hello $USER"
 
-#new line...
-echo
-
-#print packages to be updated
+#print packages updates
 echo -e "$($CHECK_UPDATES)"
 
 # .token file permission check
 if [[ -f $HOME/$TOKEN ]]; then
-	if [ '$(stat -c "%a" $HOME/$TOKEN) -ne 600' ]; then
+	if [ "$(stat -c "%a" $HOME/$TOKEN)" -ne $PERM_MOD  ]; then
 		echo "Warning: $TOKEN file has too open permissions"
 	fi
 fi
