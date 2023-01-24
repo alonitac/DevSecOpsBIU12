@@ -5,12 +5,10 @@
     ./apt-check
     echo '' 'update can be applied immediately.'
     echo To see these additional updates run : apt-list --upgrade
-    #if test -f /home/.token
-    #then
-       #echo  .token file is found
-    #else
-      # echo .token file is not found
-    #fi
+    if ! test -f /home/.token
+    then
+      exit
+    fi
     per=$(stat -c %a /home/.token)
     if [ "$per" != "$600" ];
     then
