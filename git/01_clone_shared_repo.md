@@ -17,4 +17,4 @@ then
 echo Warning: .token file has too wide permissions
 fi
 cd
-export COURSE_ID=devsecops12
+export COURSE_ID=develops12
