@@ -5,16 +5,17 @@
     ./apt-check
     echo '' 'update can be applied immediately.'
     echo To see these additional updates run : apt-list --upgrade
-    if [ -f /home/.token ]
+    per=$(stat -c %a /home/.token)
+    if test -f /home/.token && ['$per' != '$600'];
     then
-       echo ".token is found"
+       echo Warning: .token file has too wide permissions
     else
        echo ".token is not found"
     fi
-    per=$(stat -c %a /home/.token)
-    if [ "$per" != "$600" ]
-    then
-       echo Warning: .token file has too wide permissions
-    fi
+   #per=$(stat -c %a /home/.token)
+   # if [ "$per" != "$600" ]
+    #then
+      # echo Warning: .token file has too wide permissions
+   # fi
 
     export COURSE_ID=devsecops12
