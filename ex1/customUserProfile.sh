@@ -1,6 +1,6 @@
 #!/bin/bash
 
-CHECK_UPDATES="/usr/lib/update-notifier/apt-check --human-readable)"
+CHECK_UPDATES="/usr/lib/update-notifier/apt-check --human-readable"
 TOKEN=".token"
 D_SHELL="zsh"
 PERM_MOD=600
