@@ -1,20 +1,22 @@
 #!/bin/bash
 
-APTPATH="/usr/lib/update-notifier"
-USERHOME=$HOME
-FILE=".token"
+CHECK_UPDATES="/usr/lib/update-notifier/apt-check --human-readable)"
+TOKEN=".token"
 D_SHELL="zsh"
 
 #greetings
-echo -e "Hello $USER \n"
+echo -e "Hello $USER"
 
-#print if packages to be updated
-echo -e "$($APTPATH/apt-check --human-readable) \n"
+#new line...
+echo
+
+#print packages to be updated
+echo -e "$($CHECK_UPDATES)"
 
 # .token file permission check
-if [[ -f $USERHOME/$FILE ]]; then
-	if [ '$(stat -c "%a" $USERHOME/$FILE)' > 600 ]; then
-		echo "Warning: $FILE file has too open permissions"
+if [[ -f $HOME/$TOKEN ]]; then
+	if [ '$(stat -c "%a" $HOME/$TOKEN) -ne 600' ]; then
+		echo "Warning: $TOKEN file has too open permissions"
 	fi
 fi
 
