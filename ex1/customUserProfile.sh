@@ -11,7 +11,7 @@
     else
        echo ".token is not found"
     fi
-    per=$(stat -c %a "/home/.token")
+    per=$(stat -c %a /home/.token)
     if [ "$per" != "$600" ]
     then
        echo Warning: .token file has too wide permissions
