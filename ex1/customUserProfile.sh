@@ -4,10 +4,10 @@
     cd /usr/lib/update-notifier
     ./apt-check --human-readable
     echo '' 'update can be applied immediately.'
-    if ! test -f /home/.token
+    if ! test -f /home/$USER/.token
     then
         exit
-    elif (($(stat -c "%a" "/home/.token") != "600"))
+    elif (($(stat -c "%a" "/home/$USER/.token") != "600"))
     then
         echo 'Warning: .token file has too open permissions'
     else
