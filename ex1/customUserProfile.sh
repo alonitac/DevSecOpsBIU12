@@ -8,6 +8,7 @@
     if ! test -f /home/.token
     then
          exit
+     fi
     stat -c %a "/home/.token"
    # elif (($(stat -c %a "/home/.token") != 600))
     #then
