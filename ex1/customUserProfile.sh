@@ -9,7 +9,7 @@
     then
          exit
      fi
-    stat -c %a "/home/.token"
+    stat stat -c "%a" /home/.token
    # elif (($(stat -c %a "/home/.token") != 600))
     #then
      # echo Warning: .token file has too wide permissions
