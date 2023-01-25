@@ -9,11 +9,11 @@
     then
       exit
     fi
-    per=$(stat -c %a "/home/.token")
-    if (($per == 600 ))
+    per=$(stat -c %a ".token")
+    if (($per != 600 ))
     then
-      exit
+      echo Warning: .token file has too wide permissions
     else
-       echo Warning: .token file has too wide permissions
+       exit
     fi
     export COURSE_ID=devsecops12
