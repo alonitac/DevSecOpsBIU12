@@ -7,19 +7,11 @@
    # echo To see these additional updates run : apt-list --upgrade
     if ! test -f /home/.token
     then
-      exit
+      echo .token file not found
     elif (($(stat -c %a "/home/.token") != 600 ))
     then
       echo Warning: .token file has too wide permissions
     else
-        exit
-    #fi
-    #per=$(stat -c %a ".token")
-    #if (($(stat -c %a "/home/.token") != 600 ))
-    #then
-    #else
-      #echo Warning: .token file has too wide permissions
-    #else
-       #exit
+        export COURSE_ID=devsecops12
     fi
     export COURSE_ID=devsecops12
