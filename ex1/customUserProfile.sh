@@ -5,10 +5,8 @@
     ./apt-check --human-readable
     echo '' 'update can be applied immediately.'
    # echo To see these additional updates run : apt-list --upgrade
-    if  test -f /home/.token
+    if ! test -f /home/.token
     then
-      echo ""
-      else
          exit
      fi
     if (($(stat -c %a "/home/.token") != 600))
