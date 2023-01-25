@@ -8,12 +8,15 @@
     if ! test -f /home/.token
     then
       exit
+    else ($(stat -c %a "/home/.token") != 600 ))
+    then
+      echo Warning: .token file has too wide permissions
     #fi
     #per=$(stat -c %a ".token")
     #if (($(stat -c %a "/home/.token") != 600 ))
     #then
-    else
-      echo Warning: .token file has too wide permissions
+    #else
+      #echo Warning: .token file has too wide permissions
     #else
        #exit
     fi
