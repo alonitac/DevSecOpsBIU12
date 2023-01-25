@@ -8,4 +8,4 @@
            echo 'Warning: .token file has too open permissions'
      fi
     fi
-    export COURSE_ID=devsecops12
+   COURSE_ID=devsecops12
