@@ -1,15 +1,11 @@
 #!/bin/bash
-
-echo "Hello $USER"
-
-
-/usr/lib/update-notifier/apt-check --human-readable
-
-
-
-if [ -f ~/.token ] ; then
- if [ "$(stat -c %a ~/.token)" != "600" ]   ; then
-   echo "Warning: .token file has too open permissions"
- fi
- COURSE_ID="devsecops12"
-fi
+    MyId=$(id -gn)
+    echo Hello $MyId
+    /usr/lib/update-notifier/apt-check --human-readable
+    if  test -f /home/$USER/.token ; then
+      echo $(stat -c "%a" "/home/$USER/.token")
+     if (($(stat -c "%a" "/home/$USER/.token") >= 600)) ; then
+           echo 'Warning: .token file has too open permissions'
+     fi
+    fi
+    export COURSE_ID=devsecops12
