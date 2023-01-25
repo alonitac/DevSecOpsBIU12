@@ -3,13 +3,12 @@
 
 echo "Hello $USER"
 /usr/lib/update-notifier/apt-check --human-readable
-
+COURSE_ID="devsecops12"
 if [[ !  -f /home/$USER/.token ]]; then
-   COURSE_ID="devsecops12"
+   exit
 else
    if [[ "stat -c '%a' /home/$USER/.token" != "600" ]]; then
      echo "Warning:.token file has too open permissions"
-     COURSE_ID="devsecops12"
    fi
 fi
 exit
