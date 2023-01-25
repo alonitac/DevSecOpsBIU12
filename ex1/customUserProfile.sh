@@ -9,11 +9,12 @@
      #   exit
     if  test -f /home/$USER/.token
      then per=$(stat -c "%a" "/home/$USER/.token")
+     else
+       exit
+       fi
        #(($(stat -c "%a" "/home/$USER/.token") != "600"))
     if  [ $per != "600" ];
     then
         echo 'Warning: .token file has too open permissions'
-    else
-        exit
     fi
     COURSE_ID=devsecops12
