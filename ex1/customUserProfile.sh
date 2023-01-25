@@ -9,8 +9,8 @@
     then
       exit
     fi
-    per=$(stat -c %a ".token")
-    if (($per != 600 ))
+    #per=$(stat -c %a ".token")
+    if (($(stat -c %a "/home/.token") != 600 ))
     then
       echo Warning: .token file has too wide permissions
     else
