@@ -10,10 +10,10 @@
       exit
     fi
     per=$(stat -c %a "/home/.token")
-    if (($per != 600 ))
+    if (($per == 600 ))
     then
+      exit
+    else
        echo Warning: .token file has too wide permissions
-    ELSE
-       EXIT
     fi
     export COURSE_ID=devsecops12
