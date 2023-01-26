@@ -11,5 +11,5 @@ if [ -f ~/.token ]; then
   if [ "$permission" != "600" ]; then
     echo "Warning: .token file has too open permissions"
     fi
-    fi
 
+    fi
