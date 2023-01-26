@@ -3,7 +3,7 @@
 # COURSE_ID="devsecops12"
 export COURSE_ID
 
-#echo "Hello $USER"
+#echo "hello $USER"
 #
 #/usr/lib/update-notifier/apt-check --human-readable
 #
