@@ -1,9 +1,8 @@
 ##!/bin/bash
 
- COURSE_ID="devsecops12"
-export COURSE_ID
+COURSE_ID="devsecops12"
 
-echo "hello $USER"
+echo "Hello $USER"
 
 /usr/lib/update-notifier/apt-check --human-readable
 
