@@ -11,8 +11,11 @@ echo "Hello $USER"
 echo -e "$($CHECK_UPDATES)"
 
 # .token file permission check
-if [ -e ~/$FILE ] && [ $(stat -c "%a" ~/$FILE) -ne 600 ]; then
+if [ -e ~/$FILE ]; then
+  TMP=$(stat -c "%a" ~/$FILE)
+  if [ "$TMP" -ne 600 ]; then
 		echo "Warning: $FILE file has too open permissions"
+	fi
 fi
 
 #Set Environment variable COURSE_ID >> devsecops12
