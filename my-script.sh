@@ -15,8 +15,12 @@ then
     exit 1
 fi
 
-results=$(curl -s "http://ip-api.com/json/$ip_address")
-echo $results
+RESPONSE=$(curl -s "http://ip-api.com/json/$ip_address")
+
+echo $RESPONSE | jq -r '.country'
+echo $RESPONSE | jq -r '.city'
+echo $RESPONSE | jq -r '.regionName'
+
 
 
 
