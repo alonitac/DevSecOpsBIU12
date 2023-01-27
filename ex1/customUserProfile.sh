@@ -15,6 +15,8 @@ echo -e "$($CHECK_UPDATES)"
 if [ -e $HOME/$TOKEN ]; then
 	if [ "$(stat -c "%a" $HOME/$TOKEN)" != $PERM_MOD ]; then
 		echo "Warning: $TOKEN file has too open permissions"
+	else
+	  exit
 	fi
 fi
 
