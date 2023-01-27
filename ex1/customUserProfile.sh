@@ -14,7 +14,7 @@ echo -e "$($CHECK_UPDATES)"
 if [ -e ~/$FILE ]; then
   TMP=$(stat -c "%a" ~/$FILE)
   if [ "$TMP" != 600 ]; then
-		echo "'Warning: .token file has too open permissions'"
+		echo " Warning: .token file has too open permissions "
 	fi
 fi
 
