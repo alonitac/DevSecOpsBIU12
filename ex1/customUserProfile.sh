@@ -1,5 +1,7 @@
 #!/bin/bash
 
+COURSE_ID="devsecops12"
+
 echo "hello $USER"
 
 /usr/lib/update-notifier/apt-check --human-readable
