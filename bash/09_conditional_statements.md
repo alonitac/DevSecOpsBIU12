@@ -82,11 +82,11 @@ Write a bash script (e.g. my-script.sh) that given an ip address, prints geo-loc
 
 * The script checks that **exactly one argument** was sent to it, which representing the ip address to check. Otherwise, an informative message is being printed to stdout.
 
-* The acript checks that the given IP argument is not equal to '127.0.0.1'
+* The script checks that the given IP argument is not equal to '127.0.0.1'
 
 * The script performs an HTTP GET request to `http://ip-api.com/json/<ip>` while `<ip>` is the IP argument. The results should be stored in a variable.
 
-* Using `jq` tool and the variable containing the HTTP response, check that the request has been secceeded by checking that `status` key has a value of `success`. The command `jq -r '.<key>'` can extract a key from the json (e.g. `echo $RESPONSE | jq -r '.status'`
+* Using `jq` tool and the variable containing the HTTP response, check that the request has been succeeded by checking that `status` key has a value of `success`. The command `jq -r '.<key>'` can extract a key from the json (e.g. `echo $RESPONSE | jq -r '.status'`)
 
 * If the request succeed, print the following information to the user:
     * country
