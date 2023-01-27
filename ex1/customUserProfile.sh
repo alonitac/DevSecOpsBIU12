@@ -12,5 +12,4 @@ then
   then
     echo "Warning: .token file has too wide permissions"
     fi
-
   fi
