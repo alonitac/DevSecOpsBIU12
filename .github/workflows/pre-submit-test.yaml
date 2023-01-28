@@ -11,3 +11,22 @@ jobs:
         run: |
           cd ex1
           sudo bash ex1_test.sh
+  BashEx2Test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    if: ${{ startsWith(github.ref, 'refs/heads/bash_ex2/')  }}
+    env:
+      INFLUXDB_ADMIN_USER: admin
+      INFLUXDB_ADMIN_PASSWORD: abc
+      INFLUXDB_HTTP_AUTH_ENABLED: true
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run test cases
+        run: |
+          sudo apt-get update && sudo apt-get install influxdb
+          sudo service influxdb start
+          sleep 10
+          cd ex2
+          export DB_USERNAME=admin
+          export DB_PASSWORD=abc
+          bash ex2_test.sh
