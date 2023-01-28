@@ -30,7 +30,7 @@ fi
 #HTTP GET request, store the results in a variable
 RESULT=$(curl -S http://ip-api.com/json/$IPADDRESS)
 
-#Check that the request has been succeeded
+#Check if that the request has been succeeded
 #If the request succeed, print the following information to the user -> country, city, regionName
 if echo $RESULT | jq -r '.status' | grep success
 then
