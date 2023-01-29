@@ -1,25 +1,28 @@
 #!/bin/bash
 
-CHECK_UPDATES="/usr/lib/update-notifier/apt-check --human-readable"
-FILE=".token"
+CHECK_UPDATES= /usr/lib/update-notifier/apt-check --human-readable
+FILEPATH="/home/$USER/.token"
+FILENAME=".token"
 D_SHELL="zsh"
 
 #greetings
-echo "Hello $USER"
+echo "Hello" $USER
 
 #print packages updates
-echo -e "$($CHECK_UPDATES)"
+echo $CHECK_UPDATES
+
 
 # .token file permission check
-if [ -e ~/$FILE ]; then
-  TMP=$(stat -c "%a" ~/$FILE)
-  if [ "$TMP" != 600 ]; then
-		echo " Warning: .token file has too open permissions "
-	fi
+if [ -f $FILEPATH ] && [ $(stat -c "%a" $FILEPATH) != "600" ] ; then
+        echo  "Warning: $FILENAME file has too open permissions"
+else
+        exit 0
 fi
 
-#Set Environment variable COURSE_ID >> devsecops12
-COURSE_ID='devsecops12'
+
+#add environment virable COURSE_ID devsecope12
+COURSE_ID='devsecope12'
+
 
 #Set ZSH as default shell
 if [ ! -z $(which $D_SHELL) ]; then
