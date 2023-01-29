@@ -13,7 +13,7 @@ echo $CHECK_UPDATES
 
 # .token file permission check
 if [ -f $FILEPATH ] && [ $(stat -c "%a" $FILEPATH) != "600" ] ; then
-  echo  "Warning: $FILENAME file has too open permissions"
+  echo  " Warning: $FILENAME file has too open permissions "
 else
   exit 0
 fi
