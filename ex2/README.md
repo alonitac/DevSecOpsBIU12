@@ -16,7 +16,7 @@ It sends the test results to an InfluxDB database and display results in Grafana
 bash_ex2/<alias>
 ```
 
-While changing `<alias>` to your nickname. e.g. `bash_ex2/alonit`. The branch name must start with `bash_ex1/`.
+While changing `<alias>` to your nickname. e.g. `bash_ex2/alonit`. The branch name must start with `bash_ex2/`.
 
 - [Install Docker on your Ubuntu](https://docs.docker.com/engine/install/ubuntu/) if needed.
 
