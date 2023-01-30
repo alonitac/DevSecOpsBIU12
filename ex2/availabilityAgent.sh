@@ -9,8 +9,12 @@ do
   while read -r HOST
   do
      time=$(date +%s)
-     ping  -c 1 "$HOST"  | awk -v "host=$HOST" -v "time_s=$time" -v "status=0" '/packet loss/ {if ($6 == "0%") status="1" } END { print "Test result for " host  " is " status " at " time_s }'
-     curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_PASSWORD  --data-binary "availability_test,host=$HOST value=1 $time"
+     status_latency=$(ping  -c 1 -W 1 "$HOST"  | grep -oP '(?<=time=)\d+(\.\d+)?')
+     if [[ "$status_latency" = "" ]] ; then
+       status_latency=0
+     fi
+     echo "Test result for $HOST is $status_latency at $time"
+     curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_PASSWORD  --data-binary "availability_test,host=$HOST value=$status_latency $time"
      sleep 1
   done < hosts
   echo ""
