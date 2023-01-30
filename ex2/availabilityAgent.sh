@@ -1,7 +1,7 @@
 #!/bin/bash
 TEST_PERIODICITY=5
-DB_USERNAME=admin
-DB_PASSWORD=12345678
+export DB_USERNAME=admin
+ecport DB_PASSWORD=12345678
 #!/bin/bash
 TEST_PERIODICITY=5
 while true; do
