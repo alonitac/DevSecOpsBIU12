@@ -9,7 +9,7 @@ do
   while read -r HOST
   do
      time=$(date +%s)
-     status_latency=$(ping  -c 1 -W 1 "$HOST"  | grep -oP '(?<=time=)\d+(\.\d+)?')
+     status_latency=$(ping  -c 1 -W 2 "$HOST"  | grep -oP '(?<=time=)\d+(\.\d+)?')
      if [[ "$status_latency" = "" ]] ; then
        status_latency=0
      fi
