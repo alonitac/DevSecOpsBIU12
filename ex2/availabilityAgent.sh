@@ -1,18 +1,20 @@
 #!/bin/bash
 TEST_PERIODICITY=5
+DB_USERNAME=admin
+DB_PASSWORD=12345678
+#!/bin/bash
+TEST_PERIODICITY=5
 while true; do
-  for host in $(cat hosts); do
-    timestamp=$(date +%s%N)
-    result=$(ping -c 1 -W 2 "$host" | grep "1 received")
-    if [ -n "$result" ]; then
+  for TESTED_HOST in $(cat hosts); do
+    TEST_TIMESTAMP=$(date +%s%N)
+    RESULT=$(ping -c 1 -W 2 "$TESTED_HOST" | grep "1 received")
+    if [ -n "$RESULT" ]; then
       result=1
     else
       result=0
     fi
-    echo "Test result for $host is $result at $timestamp"
-    curl -i -XPOST "http://localhost:8086/write?db=hosts_metrics" \
-	-u "admin:12345678" \
-  --data-binary "ping_test value=$result $timestamp"
+    echo "Test result for $TESTED_HOST is $RESULT at $TEST_TIMESTAMP"
+    curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_PASSWORD  --data-binary "availability_test,host=$TESTED_HOST value=$RESULT $TEST_TIMESTAMP"
   done < hosts
   sleep $TEST_PERIODICITY
 done
