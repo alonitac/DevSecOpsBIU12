@@ -1,4 +1,4 @@
-# Servers Availability Test Agent
+ # Servers Availability Test Agent
 
 In this exercise, you will implement a bash script which continuously 
 monitor the availability of a pre-determined set of servers using the `ping` command. 
