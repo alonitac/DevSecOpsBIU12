@@ -1,7 +1,6 @@
 #!/bin/bash
 
 TEST_PERIODICITY=3
-RESULT="Test result for"
 
 
 while true
@@ -11,7 +10,7 @@ do
 IFS=''
 while read line
 do
-  echo $RESULT $line
+  echo "Test result for $line"
 done < hosts
 echo
 
