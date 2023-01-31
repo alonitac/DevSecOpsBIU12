@@ -6,9 +6,10 @@ D_SHELL="zsh"
 #greetings
 echo "Hello $USER"
 echo
+
 #print packages updates
-CHECK_UPDATES="/usr/lib/update-notifier/apt-check --human-readable"
-echo $CHECK_UPDATES
+CHECK_UPDATES='/usr/lib/update-notifier/apt-check --human-readable'
+echo $($CHECK_UPDATES)
 
 # .token file permission check
 if [ -f "$FILEPATH" ] && [ "$(stat -c "%a" $FILEPATH)" != "600" ]; then
