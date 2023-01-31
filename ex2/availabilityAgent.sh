@@ -14,8 +14,8 @@ do
        status_latency=0
      fi
      echo "Test result for $HOST is $status_latency at $time"
-     curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_PASSWORD  --data-binary "availability_test,host=$HOST value=$status_latency $time"
-     sleep 1
+     curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_PASSWORD  --data-binary "availability_test,host=$HOST value=$status_latency $time "
+     #sleep 1
   done < hosts
   echo ""
   sleep "$TEST_PERIODICITY"
