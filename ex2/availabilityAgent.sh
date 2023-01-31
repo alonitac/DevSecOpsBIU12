@@ -7,7 +7,7 @@ while true; do
   while read -r TESTED_HOST; do
     TEST_TIMESTAMP=$(date +%s%N)
     RESULT=$(ping -c 1 -W 2 "$TESTED_HOST")
-    if [ "$RESULT" -eq 0 ]; then
+    if [ "$RESULT" -eq 1 ]; then
       RESULT=1
     else
       RESULT=0
