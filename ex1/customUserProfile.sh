@@ -10,8 +10,8 @@ CHECK_UPDATES=$(/usr/lib/update-notifier/apt-check --human-readable)
 echo "$CHECK_UPDATES"
 
 # .token file permission check
-if [[ -f "$TOKEN" ]]; then
-  tmp=$(stat -c "%a" "$TOKEN")
+if [[ -f .token ]]; then
+  tmp=$(stat -c "%a" .token)
   if [[ "$tmp" != "600" ]]; then
     echo  "Warning: .token file has too open permissions"
   fi
