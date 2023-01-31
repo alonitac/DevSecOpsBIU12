@@ -12,10 +12,9 @@ echo "Hello" $USER
 echo $CHECK_UPDATES
 
 # .token file permission check
-if [ -f $FILEPATH ] && [ $(stat -c "%a" $FILEPATH) != "600" ] ; then
-  echo  " Warning: $FILENAME file has too open permissions "
-else
-  exit 0
+# may need to echo permission octal value
+if [ -f $FILEPATH ] && (($(stat -c "%a" $FILEPATH) != 600)); then
+  echo  'Warning:' $FILENAME 'file has too open permissions'
 fi
 
 #add environment virable COURSE_ID devsecope12
