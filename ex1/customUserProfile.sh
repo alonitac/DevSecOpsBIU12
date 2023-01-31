@@ -1,6 +1,6 @@
 #!/bin/bash
 D_SHELL="zsh"
-TOKEN="/home/$USER/.token"
+TOKEN="~/.token"
 
 #greetings
 echo "Hello $USER"
@@ -10,8 +10,8 @@ CHECK_UPDATES=$(/usr/lib/update-notifier/apt-check --human-readable)
 echo "$CHECK_UPDATES"
 
 # .token file permission check
-if [[ -f .token ]]; then
-  tmp=$(stat -c "%a" .token)
+if [[ -f "$TOKEN" ]]; then
+  tmp=$(stat -c "%a" "$TOKEN")
   if [[ "$tmp" != "600" ]]; then
     echo  "Warning: .token file has too open permissions"
   fi
