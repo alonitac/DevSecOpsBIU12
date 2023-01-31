@@ -1,11 +1,17 @@
+#!/bin/sh
 TEST_PERIODICITY=5
+DB_USERNAME=admin
+DB_PASSWORD=12345678
 
 while true
 do
   # Your code here....
-  cat ./hosts | while read line
+  cat ./hosts | while read -r HOST
     do
-      ping -c $line; echo $?
+     TIME=$(date +%s%N)
+     STATUS=$(ping -c 1 -w 2 "$HOST" | grep -c "1 received")
+     echo "Test result for $HOST is $STATUS at $TIME"
+     curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_PASSWORD  --data-binary "availability_test,host=$HOST value=$STATUS $TIME"
     done
   sleep "$TEST_PERIODICITY"
 done
