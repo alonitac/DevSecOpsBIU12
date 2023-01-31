@@ -5,15 +5,16 @@ D_SHELL="zsh"
 
 #greetings
 echo "Hello $USER"
-echo
 
 #print packages updates
 CHECK_UPDATES='/usr/lib/update-notifier/apt-check --human-readable'
 echo $($CHECK_UPDATES)
 
 # .token file permission check
-if [ -f "$FILEPATH" ] && [ "$(stat -c "%a" $FILEPATH)" != "600" ]; then
-    echo  "Warning: $FILENAME file has too open permissions"
+if [ -f "$FILEPATH" ]; then
+  if [ "$(stat -c "%a" $FILEPATH)" -ne "600" ]; then
+    echo  "Warning: .token file has too open permissions"
+  fi
 fi
 
 #add "environment" variable COURSE_ID no export
