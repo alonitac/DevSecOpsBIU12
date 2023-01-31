@@ -6,7 +6,7 @@ export DB_PASSWORD=12345678
 while true; do
   while read -r TESTED_HOST; do
     TEST_TIMESTAMP=$(date +%s%N)
-    RESULT=$(ping -c 1 -W 2 "$TESTED_HOST")
+    RESULT=$(ping -c 1 -W 2 "$TESTED_HOST" | grep -c "1 received")
     if [ "$RESULT" -eq 1 ]; then
       RESULT=1
     else
