@@ -7,7 +7,7 @@ TEST_PERIODICITY=5
 while true; do
   while read -r TESTED_HOST; do
     TEST_TIMESTAMP=$(date +%s%N)
-    RESULT=$(ping -c 1 -W 2 "$TESTED_HOST" | grep "1 received")
+    RESULT=$(ping -c 1 -W 2 "$TESTED_HOST")
     if [ -n "$RESULT" ]; then
       result=1
     else
@@ -18,7 +18,3 @@ while true; do
   done < hosts
   sleep $TEST_PERIODICITY
 done
-
-
-
-echo "WELL DONE!!! you've passed all tests!"
