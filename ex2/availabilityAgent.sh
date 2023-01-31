@@ -3,8 +3,6 @@ TEST_PERIODICITY=5
 export DB_USERNAME=admin
 export DB_PASSWORD=12345678
 
-#!/bin/bash
-TEST_PERIODICITY=5
 while true; do
   while read -r TESTED_HOST; do
     TEST_TIMESTAMP=$(date +%s%N)
