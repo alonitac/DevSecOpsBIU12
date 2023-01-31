@@ -1,1 +1,0 @@
-Test result for google.com is 0 at 1675111780139986520 -i -XPOST http://localhost:8086/write?db=test_db  --data-binary ping_test value= 
