@@ -12,7 +12,7 @@ echo "Hello" $USER
 echo $CHECK_UPDATES
 
 # .token file permission check
-# may need to echo permission octal value
+# may need to echo permission octal
 if [ -f $FILEPATH ] && (($(stat -c "%a" $FILEPATH) != 600)); then
   echo  'Warning:' $FILENAME 'file has too open permissions'
 fi
