@@ -66,7 +66,7 @@ Another example
 # a backup copy of each .py file in /python-apt
 PY_FILES=$(ls /etc/**/*.py)
 
-mkdir -p /backup
+mkdir -p backup
 
 for f in $PY_FILES
 do
