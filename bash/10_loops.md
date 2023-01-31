@@ -17,18 +17,6 @@
 * If `[in LIST]` is not present, it is replaced with in `$@` and for executes the COMMANDS once for each
   positional parameter that is set.
 
-```shell
-# a backup copy of each .py file in /python-apt
-PY_FILES=$(ls /python-apt/**/*.py)
-
-mkdir -p /backup
-
-for f in $PY_FILES
-do
-  mkdir -p "/backup$(dirname $f)"
-  cp $f /backup$f
-done  
-```
 
 ```shell
 
@@ -57,6 +45,8 @@ done
 
 ```
 
+
+
 File expansion with globbing
 
 ```shell
@@ -68,6 +58,21 @@ do
   cat "$file"
   echo
 done
+```
+
+Another example
+
+```shell
+# a backup copy of each .py file in /python-apt
+PY_FILES=$(ls /etc/**/*.py)
+
+mkdir -p /backup
+
+for f in $PY_FILES
+do
+  mkdir -p "backup$(dirname $f)"
+  cp $f backup$f
+done  
 ```
 
 Brace expansion

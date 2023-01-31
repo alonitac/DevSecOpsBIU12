@@ -34,6 +34,18 @@ function log {
 function log_info {
   log "INFO" "$1"
 }
+
+function log_err {
+  log "ERROR" "$1"
+}
+
+function log_warn {
+  log "WARN" "$1"
+}
+
+function log_debug {
+  log "DEBUG" "$1"
+}
 ```
 
 ```shell

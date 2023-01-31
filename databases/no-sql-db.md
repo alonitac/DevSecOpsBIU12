@@ -16,7 +16,15 @@ Collectively, these are identified as NoSQL.
 
 ## Time-series Database (InfluxDB)
 
-TBD
+Time-series (סדרה עתית) is a sequence of data points, consisting of successive measurements made over a time interval.
+
+Time-series databases are used in statistics, finance, IoT etc...
+
+Example of time-series data is a stock price chart:
+
+![](../.img/sp500.png)
+
+InfluxDB is an open source DB designed to handle time-series data.
 
 ## Key-value Store (Redis)
 
@@ -174,7 +182,7 @@ GET/SET/LPUSH/LPOP, etc...
 
 For more information explore the [`redis-benchmark` ](https://redis.io/docs/reference/optimization/benchmarks/)
 
-### In-memory? What happens when my server gets turned off?
+### In-memory? What happens when my server is getting off?
 
 Redis has two different forms of persistence available for writing in-memory data to disk in a compact format.
 
