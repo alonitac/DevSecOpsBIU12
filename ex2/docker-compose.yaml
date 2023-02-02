@@ -1,0 +1,20 @@
+version: '3.6'
+services:
+    webservice:
+        image: grafana/grafana-oss
+        ports:
+            - '3003:3003'
+        environment:
+            - GF_SERVER_HTTP_PORT=3003
+        depends_on:
+            - database
+    database:
+        image: influxdb:1.8.10
+        ports:
+            - '8086:8086'
+        restart: always
+        environment:
+            - INFLUXDB_ADMIN_USER=admin
+            - INFLUXDB_ADMIN_PASSWORD=12345678
+            - INFLUXDB_DB=hosts_metrics
+            - INFLUXDB_HTTP_AUTH_ENABLED=true
