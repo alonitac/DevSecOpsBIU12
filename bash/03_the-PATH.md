@@ -21,12 +21,12 @@ Let's create a shell program and add it to your $PATH. Execute the following com
 mkdir -p ~/scripts
 
 # Create your script in myscript file
-echo """ 
+echo '''
 
 #!/bin/bash
 echo my script is running...
 
-""" > myscript
+''' > myscript
 
 echo "Testing the script using bash"
 bash myscript
