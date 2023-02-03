@@ -17,7 +17,7 @@ do
     then
       RETURN_CODE="$PING_LATENCY"
     else
-      RETURN_CODE=-1
+      RETURN_CODE=0
     fi
     echo "The result for $HOST_OR_IP is $RETURN_CODE at $PING_TIMESTAMP"
     #Sends a POST request to InfluxDB with the ping result data
