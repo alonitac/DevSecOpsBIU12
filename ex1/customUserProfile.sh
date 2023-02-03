@@ -11,5 +11,5 @@ if [ -f ~/.token ]; then
   fi
 fi
 
-export COURSE_ID=devsecops12
+export $COURSE_ID=devsecops12
 echo $COURSE_ID
