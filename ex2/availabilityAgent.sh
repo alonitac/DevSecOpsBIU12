@@ -9,13 +9,15 @@ do
     #Sets the current timestamp in seconds with nanoseconds
     PING_TIMESTAMP=$(date +%s%N)
     #Pings the host or IP and redirects output to null
-    ping -c 1 -W 1 $HOST_OR_IP &> /dev/null
-    #Return code of the previous command
-    if [[ $? -eq 0 ]]
+    PING_OUTPUT=$(ping -c 1 -W 1 $HOST_OR_IP)
+    #Extracts the latency from the ping output using grep and a Perl-compatible regular expression
+    PING_LATENCY=$(echo "$PING_OUTPUT" | grep -oP '(?<=time=)\d+(\.\d+)?')
+    #Checks if the latency was found
+    if [ -n "$PING_LATENCY" ]
     then
-      RETURN_CODE=1
+      RETURN_CODE="$PING_LATENCY"
     else
-      RETURN_CODE=0
+      RETURN_CODE=-1
     fi
     echo "The result for $HOST_OR_IP is $RETURN_CODE at $PING_TIMESTAMP"
     #Sends a POST request to InfluxDB with the ping result data
