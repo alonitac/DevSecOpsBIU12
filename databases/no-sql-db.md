@@ -14,6 +14,10 @@ Collectively, these are identified as NoSQL.
 
 ![](../.img/nosqldb.png)
 
+## Common NoSQL databases
+
+![](../.img/nosqldb2.png)
+
 ## Time-series Database (InfluxDB)
 
 Time-series (סדרה עתית) is a sequence of data points, consisting of successive measurements made over a time interval.
