@@ -149,10 +149,10 @@ In general, SQL databases can scale **vertically**, meaning you can increase the
 
 Relational (SQL) databases which use SQL, must exhibit four properties, known by the acronym ACID:
 
-- Atomicity: All transactions must succeed or fail completely and cannot be left partially complete, even in the case of system failure.
-- Consistency: The database must follow rules that validate and prevent corruption at every step. 
-- Isolation: Concurrent transactions cannot affect each other. The intermediate state of a transaction is invisible to other transactions.
-- Durability: Transactions are final, and even system failure cannot “roll back” a complete transaction. After a transaction successfully completes, changes to data persist and are not undone, even in the event of a system failure.
+- **Atomicity**: All transactions must succeed or fail completely and cannot be left partially complete, even in the case of system failure.
+- **Consistency**: The database must follow rules that validate and prevent corruption at every step. 
+- **Isolation**: Concurrent transactions cannot affect each other. The intermediate state of a transaction is invisible to other transactions.
+- **Durability**: Transactions are final, and even system failure cannot “roll back” a complete transaction. After a transaction successfully completes, changes to data persist and are not undone, even in the event of a system failure.
 
 
 ## Example: SQL using PostgreSQL

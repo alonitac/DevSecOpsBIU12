@@ -20,6 +20,8 @@ Collectively, these are identified as NoSQL.
 
 ## Time-series Database (InfluxDB)
 
+![](../.img/influxdb.png)
+
 Time-series (סדרה עתית) is a sequence of data points, consisting of successive measurements made over a time interval.
 
 Time-series databases are used in statistics, finance, IoT etc...
@@ -38,6 +40,19 @@ InfluxDB is an open source DB designed to handle time-series data.
 - Offers high performance - can store hundreds of gigabytes of data and millions of requests per second
 - Data is stored as key-value
 
+## Launch a Redis server
+
+We will user the official Docker image to run a redis instance
+
+```shell
+docker run --name redis -p 6379:6379 redis
+```
+
+We will communicate with the server using `redis-cli` command line tool. Install it by:
+
+```shell
+sudo apt-get install redis-tools
+```
 
 ### Redis data types
 
