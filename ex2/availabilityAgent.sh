@@ -10,7 +10,7 @@ do
     PING_TIMESTAMP=$(date +%s%N)
     #Pings the host or IP and redirects output to null
     PING_OUTPUT=$(ping -c 1 -W 1 $HOST_OR_IP)
-    #Extracts the latency from the ping output using grep and a Perl-compatible regular expression
+    #Optinional ex adding ping latency
     PING_LATENCY=$(echo "$PING_OUTPUT" | grep -oP '(?<=time=)\d+(\.\d+)?')
     #Checks if the latency was found
     if [ -n "$PING_LATENCY" ]
