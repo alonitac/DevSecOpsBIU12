@@ -84,6 +84,8 @@ for updating the slave datasets in real time.
 
 ![](../.img/rediscluster.png)
 
+[Further reading](https://redis.com/redis-enterprise/technology/redis-enterprise-cluster-architecture/)
+
 ### Language Support
 Ruby, Python, PHP, Erlang,
 Tcl, Perl, Lua, Java, Scala,
