@@ -37,7 +37,7 @@ Usig the above data structure has pros and cons:
 * ❌ The "username" and "following_username" columns are repetitive
 * ❌ @AndyRyder5 and @Brett_Englebert each tweeted twice, so the rest of their information has been duplicated.
 
-Duplicates are problematic because it makes the CRUD operations more challenging
+Duplicates are problematic because it makes the CRUD operations more challenging.
 
 ### Remove Repetitive Data Across Columns
 
@@ -131,7 +131,31 @@ What can SQL do?
 
 An **SQL query** is a statement representing some operation to perform in the database.
 
-## SQL using PostgreSQL
+## Common Relational Databases and their features
+
+![](../.img/rds.png)
+
+### Scalability
+
+In general, SQL databases can scale **vertically**, meaning you can increase the load on a server by migrating to a larger server that adds more CPU, RAM or SSD capability.
+
+![](../.img/vertical.png)
+
+**Horizontal** scaling of involves adding more nodes to the database cluster to distribute the load and increase the overall capacity of the system, it's very hard to achieve horizontal scaling in relational databases. 
+
+![](../.img/horizontal.png)
+
+### The ACID
+
+Relational (SQL) databases which use SQL, must exhibit four properties, known by the acronym ACID:
+
+- Atomicity: All transactions must succeed or fail completely and cannot be left partially complete, even in the case of system failure.
+- Consistency: The database must follow rules that validate and prevent corruption at every step. 
+- Isolation: Concurrent transactions cannot affect each other. The intermediate state of a transaction is invisible to other transactions.
+- Durability: Transactions are final, and even system failure cannot “roll back” a complete transaction. After a transaction successfully completes, changes to data persist and are not undone, even in the event of a system failure.
+
+
+## Example: SQL using PostgreSQL
 
 We will launch PostgreSQL as a docker container: 
 
