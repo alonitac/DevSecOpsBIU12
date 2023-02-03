@@ -160,7 +160,7 @@ Relational (SQL) databases which use SQL, must exhibit four properties, known by
 We will launch PostgreSQL as a docker container: 
 
 ```shell
-docker run --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
+docker run --rm --name postgres -p 5432:5432 -e POSTGRES_PASSWORD=mysecretpassword -d postgres
 ```
 
 

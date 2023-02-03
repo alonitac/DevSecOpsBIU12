@@ -45,7 +45,7 @@ InfluxDB is an open source DB designed to handle time-series data.
 We will user the official Docker image to run a redis instance
 
 ```shell
-docker run --name redis -p 6379:6379 redis
+docker run --rm --name redis -p 6379:6379 redis
 ```
 
 We will communicate with the server using `redis-cli` command line tool. Install it by:
