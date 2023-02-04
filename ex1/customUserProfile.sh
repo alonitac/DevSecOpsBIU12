@@ -17,6 +17,6 @@ if [[ -f $TOKEN_PATH ]]; then [[ $TOKEN_PARM ]]
     fi
 
 # COURSE VARIABLE
-COURSE_ID='devsecops12'fi
+COURSE_ID='devsecops12'
 
 # END OF EX1
