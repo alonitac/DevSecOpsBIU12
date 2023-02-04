@@ -15,6 +15,7 @@ if [[ -f $TOKEN_PATH ]]; then [[ $TOKEN_PARM ]]
     if [[ $TOKEN_PARM != 600 ]]; then
       echo "Warning: .token file has too open permissions"
     fi
+fi
 
 # COURSE VARIABLE
 COURSE_ID='devsecops12'
