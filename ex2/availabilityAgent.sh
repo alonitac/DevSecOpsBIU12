@@ -4,7 +4,7 @@ export DB_PASSWORD=12345678
 TEST_PERIODICITY=5
 
 while true; do
-  while read line; do
+  while read -r line; do
     ping -c 1 -W 2 $line > /dev/null
     test_result=$?
     time=$(($(date +%s%N)/1000000))
