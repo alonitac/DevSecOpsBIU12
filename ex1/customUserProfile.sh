@@ -1,4 +1,4 @@
-#bin/bash
+ #bin/bash
       #
       ##greeting the user
       #echo Hello $user
