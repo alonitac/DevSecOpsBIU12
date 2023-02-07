@@ -138,6 +138,9 @@ We've discussed in class regarding the use of curly braces `${}` when referencin
 - [databases/relational-db.md](databases/relational-db.md)
 - [databases/no-sql-db.md](databases/no-sql-db.md)
 
+
+
+
 ### Databases overview - key concepts
 
 Here are the key concepts for relational(SQL) and NoSQL databases:
