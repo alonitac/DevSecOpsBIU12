@@ -135,6 +135,9 @@ We've discussed in class regarding the use of curly braces `${}` when referencin
 - [bash/10_loops.md](bash/10_loops.md)
 - [bash/11_functions.md](bash/11_functions.md)
 
+- [databases/relational-db.md](databases/relational-db.md)
+- [databases/no-sql-db.md](databases/no-sql-db.md)
+
 ### Databases overview - key concepts
 
 Here are the key concepts for relational(SQL) and NoSQL databases:
