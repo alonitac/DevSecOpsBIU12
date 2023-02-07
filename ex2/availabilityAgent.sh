@@ -1,20 +1,23 @@
 TEST_PERIODICITY=5
+DB_USERNAME="admin"
+DB_PASSWORD="12345678"
+
 
 while true
 do
- cat hosts | while read line ;
+ cat hosts | while read TESTED_HOST ;
     do
 
-        if ping -c 1 -w 2 $line > /dev/null; then
-         TIME=$( date +%s )
-          echo "Test result for $line is 1 at $TIME "
+        if ping -c 1 -w 2 $TESTED_HOST > /dev/null; then
+       TEST_TIMESTAMP=$( date +%s )
+          echo "Test result for $TESTED_HOST is 1 at $TEST_TIMESTAMP "
           RESULT=1
-          sudo curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u admin:12345678  --data-binary "availability_test,host=$line value=$RESULT $TIME"
+          curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_PASSWORD  --data-binary "availability_test,host=$TESTED_HOST value=$RESULT $TEST_TIMESTAMP"
           sleep 2
       else
-         echo "Test result for $line is 0 at $TIME"
+         echo "Test result for $TESTED_HOST is 0 at $TEST_TIMESTAMP"
          RESULT=0
-         sudo curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u admin:12345678  --data-binary "availability_test,host=$line value=$RESULT $TIME"
+         curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_PASSWORD  --data-binary "availability_test,host=$TESTED_HOST value=$RESULT $TEST_TIMESTAMP"
 
         fi
 
