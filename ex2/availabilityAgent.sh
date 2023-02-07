@@ -27,10 +27,11 @@ do
     export DB_PASSWORD=12345678
 
     # Writing the result to InfluxDB
-    curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u "$DB_USERNAME:$DB_PASSWORD" --data-binary "availability_test,host=$HOST value=$EXIT$
+    curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u "$DB_USERNAME:$DB_PASSWORD" --data-binary "availability_test,host=$HOST value=$EXIT_STATUS $TEST_TIMESTAMP"
   done < hosts
 
   # Sleeping for the specified periodicity
   sleep "$TEST_PERIODICITY"
 done
+
 
