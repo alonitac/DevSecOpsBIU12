@@ -20,7 +20,7 @@ do
     TEST_TIMESTAMP=$(date +%s)
 
     # Storing the result of the ping command
-    RESULT=$(ping -c 1 -W 2 $HOST | grep "received" | awk '{print $4}')
+    RESULT=$(ping -c 1 -W 2 $HOST | awk '/received/ {print $4}')
 
     # Checking if the result of the ping command is a valid number
     if [[ $RESULT =~ ^[0-9]+$ ]]; then
