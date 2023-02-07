@@ -20,19 +20,14 @@ do
     TEST_TIMESTAMP=$(date +%s)
 
     # Storing the result of the ping command
-    RESULT=$(ping -c 1 -W 2 $HOST | awk '/received/ {print $4}')
+    RESULT=$(ping -c 1 -W 2 $HOST)
 
-    # Checking if the result of the ping command is a valid number
-    if [[ $RESULT =~ ^[0-9]+$ ]]; then
-      # Setting the environment variables for InfluxDB username and password
-      export DB_USERNAME=admin
-      export DB_PASSWORD=12345678
+    # Setting the environment variables for InfluxDB username and password
+    export DB_USERNAME=admin
+    export DB_PASSWORD=12345678
 
-      # Writing the result to InfluxDB
-      curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u "$DB_USERNAME:$DB_PASSWORD" --data-binary "availability_test,host=$HOST value=$RESULT $TEST_TIMESTAMP"
-    else
-      echo "Invalid result for host $HOST: $RESULT"
-    fi
+    # Writing the result to InfluxDB
+    curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u "$DB_USERNAME:$DB_PASSWORD" --data-binary "availability_test,host=$HOST value=$EXIT_STATUS $TEST_TIMESTAMP"
   done < hosts
 
   # Sleeping for the specified periodicity
