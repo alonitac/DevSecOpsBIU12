@@ -127,3 +127,55 @@ Attached are some useful resources regarding process forking in Linux systems
 ### Variable reference using curly braces `${}`
 
 We've discussed in class regarding the use of curly braces `${}` when referencing a variable in Bash. Read the chapter on [Parameter Substitution](https://tldp.org/LDP/abs/html/parameter-substitution.html) to see more examples.
+
+# Session VI (31/1) + Session VII (03/2)
+
+### Covered content
+
+- [bash/10_loops.md](bash/10_loops.md)
+- [bash/11_functions.md](bash/11_functions.md)
+
+### Databases overview - key concepts
+
+Here are the key concepts for relational(SQL) and NoSQL databases:
+
+#### SQL databases
+
+- Fixed schema: the structure of the tables and the types of data is defined in advance. Schema modification is hard work.
+- Use structured query language (SQL) for querying and manipulating data.
+- Are optimized for complex queries, for applications that require strong consistency and reliability.
+- Use a relational model to store data, organizing it into tables with rows and columns and using relationships between tables.
+
+The big players: 
+
+- MySQL: An open-source relational database management system that is widely used for web-based applications.
+- PostgreSQL: An open-source object-relational database management system that is known for its reliability, stability, and robust feature set.
+- Microsoft SQL Server: A commercial relational database management system developed by Microsoft, suitable for both small and large-scale enterprise applications.
+- Oracle Database: A commercial relational database management system developed by Oracle Corporation, offering advanced features for data warehousing, OLAP, and business intelligence.
+
+#### NoSQL databases
+
+- Flexible schema: the structure of the database can be changed dynamically without affecting the data it stores.
+- Use a variety of query languages, including SQL-like languages, JavaScript, and others, depending on the type of database.
+- Are optimized for high availability (HA), high performance, scalability, and ease of use, making them suitable for applications that handle large amounts of unstructured or semi-structured data.
+- Use a variety of data models, including document, key-value, graph, and others, depending on the type of database.
+
+The big players: 
+
+- MongoDB: A document-oriented database that uses JSON-like documents to store data.
+- Cassandra: A highly scalable and available distributed database that uses a column-based data model.
+- Redis: An in-memory key-value store that supports a wide range of data structures and is often used as a cache or message broker.
+- DynamoDB: A fully managed NoSQL database service provided by Amazon Web Services (AWS).
+- Elasticsearch: A search engine based on the Lucene library that supports full-text search and real-time analytics. It can be used as a stand-alone search engine or as part of the ELK stack (Elasticsearch, Logstash, and Kibana) for log analysis and data visualization.
+- InfluxDB: A time series database that is optimized for storing and processing time-stamped data, such as metrics and events. It supports SQL-like queries and includes a built-in HTTP API for data ingestion and retrieval.
+
+In summary, the choice between SQL and NoSQL databases depends on the specific requirements of the application, such as the type and structure of data, performance and scalability needs, and the complexity of querying and processing the data.
+
+
+### Functions practice 
+
+At the end of [bash/11_functions.md](bash/11_functions.md) you'll find a few empty bash functions, you are highly encouraged to implement the function body according to the instructions.    
+
+### Logical operators (`&&`, `||`)
+
+Get yourself familiar with bash logical operators, read the **logical (boolean) operators** section in [our book](https://tldp.org/LDP/abs/html/ops.html) 
