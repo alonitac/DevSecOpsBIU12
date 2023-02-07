@@ -20,7 +20,57 @@ The commands listed between curly braces make up the body of the function. These
 whenever FUNCTION is specified as the name of a command. The exit status is the exit status of the last
 command executed in the body.
 
+Let's start with a very simple function - a function that prints "hi":
 
+```shell
+# define the function
+function greeting {
+  echo "Hi"  
+}
+
+# execute the function 
+greeting
+```
+
+Copy the above snippet to a `.sh` script and execute.
+
+We want now to send an argument to the function, in the same way we pass arguments to bash scripts:
+
+```shell
+# define the function
+function greeting {
+  echo "Hi, $1"  
+}
+
+# execute the function 
+greeting John
+```
+
+To execute the function `greeting` from another bash file, use the `source` command to "import" the function:
+
+myscript-1.sh:
+
+```shell
+# myscript-1.sh 
+
+function greeting {
+  echo "Hi, $1"  
+}
+```
+
+myscript-2.sh:
+
+```shell
+# myscript-2.sh
+
+source myscript-1.sh
+
+greeting John
+```
+ 
+---
+
+Here is more complex example:
 
 ```shell
 function log {
