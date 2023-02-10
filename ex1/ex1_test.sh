@@ -12,7 +12,7 @@ rm -f -r /home/myuser
 if id -u myuser &> /dev/null; then
   userdel myuser
 fi
-
+echo "eli 1234"
 cat customUserProfile.sh > /etc/skel/.bash_profile
 
 adduser myuser --gecos "" --disabled-password
