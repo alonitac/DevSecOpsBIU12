@@ -1,6 +1,6 @@
 set -e
 
-USER_PASS=1234
+USER_PASS=1235
 
 OUTPUT_FILE=terminal_output
 function print_terminal_output {
