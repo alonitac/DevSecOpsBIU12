@@ -30,3 +30,43 @@ jobs:
           export DB_USERNAME=admin
           export DB_PASSWORD=abc
           bash ex2_test.sh
+  BashEx4Test:
+    runs-on: ubuntu-latest
+    if: ${{ startsWith(github.ref, 'refs/heads/bash_ex4/')  }}
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v1
+      - uses: BSFishy/pip-action@v1
+        with:
+          packages: |
+            aiohttp
+      - run: |
+          sudo apt-get update -y
+          sudo apt-get install jq -y
+          cd ex4_optional/tls_webserver
+
+      - name: Linux Ex2 pre-subbmit test - Getting Eve certificate
+        run: |
+          cd ex4_optional
+          bash test.sh eve
+
+      - name: Linux Ex2 pre-subbmit test - Bad client test message encryption
+        run: |
+          cd ex4_optional
+          bash test.sh bad-msg
+
+      - name: Linux Ex2 pre-subbmit test - Full handshake process
+        run: |
+          cd ex4_optional
+          bash test.sh
+  BashEx5Test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    if: ${{ startsWith(github.ref, 'refs/heads/bash_ex5/')  }}
+    container: redis
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run test cases
+        run: |
+          cd ex5_optional
+          bash ex5_test.sh
