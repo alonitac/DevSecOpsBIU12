@@ -7,12 +7,17 @@ APP_CODE_URL="$BASE_REPO_GITHUB_URL/ex3/utils/app.py"
 APP_V1_CODE_URL="$BASE_REPO_GITHUB_URL/ex3/utils/app_v1.py"
 APP_V2_CODE_URL="$BASE_REPO_GITHUB_URL/ex3/utils/app_v2.py"
 
-git --version
+
+echo "Verifying Git installation..."
+
+git --version > /dev/null
 
 if [ ! $? -eq 0 ]; then
     echo "Git must be installed for this exercise"
     exit 1
 fi
+
+echo "Checking no remotes for this Git repo..."
 
 REMOTES=$(git remote -v)
 if [ ! -z "$REMOTES" ]; then
@@ -36,6 +41,8 @@ echo "venv" >> .gitignore
 
 git add .gitignore && git commit -m "add gitignore"
 
+echo "Creating branches..."
+
 
 # general branches
 git branch bugfix/fix_readme_typo
@@ -54,6 +61,9 @@ echo "c" >> take.txt
 git add take.txt && git commit -m "add take.txt in dev"
 git checkout main
 
+echo "Creating files for git reset question..."
+
+
 # Reset
 git checkout -b reset_question
 
@@ -65,6 +75,8 @@ do
 done
 
 git checkout main
+
+echo "Creating conflict scenario..."
 
 
 # Resolve conflicts
