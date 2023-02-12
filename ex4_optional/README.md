@@ -155,7 +155,9 @@ cat encSampleMsg.txt | base64 -d > encSampleMsgReady.txt
 
 # file encSampleMsgReady.txt is ready now to be used in "openssl enc...." command 
 ```
-Recall the demo in `01_encryption` directory in our shared repo to see how to decrypt a message. Again, you should exit the program upon an invalid decryption. Do it by:
+
+Take a look on the code 
+Recall the demo in `encryption` directory in our shared repo to see how to decrypt a message. Again, you should exit the program upon an invalid decryption. Do it by:
 ```shell
 if [ "$DECRYPTED_SAMPLE_MESSAGE" != "Hi server, please encrypt me and send to client!" ]; then
   echo "Server symmetric encryption using the exchanged master-key has failed."
