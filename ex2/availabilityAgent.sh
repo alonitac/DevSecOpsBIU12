@@ -19,5 +19,6 @@ curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_
 
 
   sleep "$TEST_PERIODICITY"
+  done < hosts
 done
 
