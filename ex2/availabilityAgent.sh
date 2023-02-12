@@ -10,7 +10,7 @@ if  [ $? -eq 0 ]; then
      curl -X POST "http://localhost:8086/write?db=hosts_metrics" -u "admin":"12345678" --data-binary "availability_test,host=$? value=$result $(date +'%s%N')"
 fi
 # echo "test result for $line is 0  at $(date +%s%N)"
-fi
+
 sleep "$TEST_PERIODICITY"
   done < hosts
 done
