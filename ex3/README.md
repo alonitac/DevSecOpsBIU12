@@ -2,11 +2,11 @@
 
 ## Preliminaries
 
-1. In your local machine, initialize a new local Git repository (`git init ex3_repo`).
-2. Copy `ex3/utils/init.sh` into your empty local Git repo. This file will automatically create branches and commit changes in your repo, so you could be ready for the exercise. There is no guarantee that the script is running properly on Windows systems, so please do this exercise in your Linux machines.
-3. Execute `init.sh` by `sh init.sh`. Make sure it's finished without errors. If in any step you want to initialize the repo again in order to get a clean version, don't re-run `init.sh` again, but delete the old repo and create a new one by `git init`.
+1. In your local machine, initialize a new local Git repository (e.g. `git init ex3_repo`).
+2. Copy `ex3/utils/init.sh` into the local Git repo you've just created. No need to commit this file, the file will automatically create branches and commit changes in your repo, so you could be ready for the exercise. There is no guarantee that the script is running properly on Windows systems, so please do this exercise in your Linux machines.
+3. Execute `init.sh` by `sh init.sh`. Make sure it's finished without errors. If in any step you want to initialize the repo again in order to start over from the beginning, don't re-run `init.sh` again, but delete the old repo and create a new one by `git init`.
 
-From now on, unless otherwise specified, execute all commands from a **Terminal** (either Ubuntu or Pycharm terminal), **don't use Pycharm UI**.
+From now on, unless otherwise specified, execute all commands from a Linux **Terminal** (either Ubuntu or Pycharm terminal), **don't use Pycharm UI**.
 Answer the questions below in `ex3/SOLUTION` file. Include the commands you executed in each step, as well as a free text explanation if needed.
 As this exercise is checked by you, no need to commit and push the solution.
 
