@@ -11,10 +11,7 @@ else
 fi
 # echo "test result for <$line> is <$?> at <$(date +%s%N)>"
 gnome-terminal
-sudo docker run --rm --name influxdb -p 8086:8086
- -e INFLUXDB_ADMIN_USER=addmin -e INFLUXDB_ADMIN_PASSWORD=12345678
- -e INFLUXDB_HTTP_AUTH_ENABLED=true
- influxdb:1.8.10
+ocker run --rm --name influxdb -p 8086:8086 -e INFLUXDB_ADMIN_USER=admin -e INFLUXDB_ADMIN_PASSWORD=12345678 -e INFLUXDB_HTTP_AUTH_ENABLED=true influxdb:1.8.10
 gnome-terminal
 curl -X POST 'http://localhost:8086/query' -u admin:12345678 --data-urlencode "q=CREATE DATABASE hosts_metrics"
 gnome-terminal
