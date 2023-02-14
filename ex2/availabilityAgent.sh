@@ -23,6 +23,10 @@ do
 
   # write the test result to stdout
   echo "Test result for $host is $result at $timestamp"
+  TESTED_HOST=$hosts
+  RESULT=$result
+  TEST_TIMESTAMP=$timestamp
+  curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_PASSWORD  --data-binary "availability_test,host=$TESTED_HOST value=$RESULT $TEST_TIMESTAMP"
   done < hosts
 
   # wait for TEST_PERIODICITY seconds before executing the loop again
