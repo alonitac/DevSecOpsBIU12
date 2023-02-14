@@ -190,6 +190,7 @@ Get yourself familiar with bash logical operators, read the **logical (boolean) 
 
 ### Pre-commit
 
+[Pre-commit](https://pre-commit.com/) lets you enforce security and other policies right before a developer is going to commit her change.  
 
 From your Pycharm terminal, install it by: 
 
@@ -201,7 +202,20 @@ pre-commit install
 Add and commit the following content to your repo, call the file `.pre-commit-config.yaml`:
 
 ```yaml
+repos:
+  -   repo: https://github.com/pre-commit/pre-commit-hooks
+      rev: v3.2.0
+      hooks:
+        -   id: check-added-large-files
+            args: ['--maxkb=20']
+        -   id: detect-aws-credentials
+```
 
+Try it by commit some prohibited change, such as an AWS credentials:
+
+```text
+aws_access_key_id = AKIA2GMYJTLLBID7DVUP
+aws_secret_access_key = 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
 ```
 
 - unnittest
