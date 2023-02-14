@@ -185,3 +185,25 @@ At the end of [bash/11_functions.md](bash/11_functions.md) you'll find a few emp
 ### Logical operators (`&&`, `||`)
 
 Get yourself familiar with bash logical operators, read the **logical (boolean) operators** section in [our book](https://tldp.org/LDP/abs/html/ops.html) 
+
+# Session IIX (07/02) + Session IX (10/02)
+
+### Pre-commit
+
+
+From your Pycharm terminal, install it by: 
+
+```shell
+pip install pre-commit
+pre-commit install
+```
+
+Add and commit the following content to your repo, call the file `.pre-commit-config.yaml`:
+
+```yaml
+
+```
+
+- unnittest
+- rebase vs merge
+
