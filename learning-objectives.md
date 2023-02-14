@@ -222,3 +222,7 @@ Try it by commit some prohibited change, such as an AWS credentials:
 aws_access_key_id = AKIA2GMYJTLLBID7DVUP
 aws_secret_access_key = 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
 ```
+
+## Git rebase 
+
+Read the great Atlassian’s article about [git rebase](https://www.atlassian.com/git/tutorials/rewriting-history/git-rebase). Make sure you understand the difference between `git merge` and `git rebase`. 
