@@ -1,4 +1,19 @@
-# your solution here...
+# Print user  welcome
+echo $USER Hello
+
+#print number of out of date softwares
+/usr/lib/update-notifier/apt-check --human-readable | grep updates
+
+sudo touch ~/$USER.token
+
+stat -c "%a" ~/$USER.token = $AB
+
+if [$AB =< 600]
+
+then
+echo "Warning the $USER"
+
+fi [echo "All Good"]
 #!bin/bash
 
 #greeting the user
