@@ -10,11 +10,11 @@ do
 
     # extract the result of the ping
   if echo $result | grep -q "1 received"; then
-      # ping failed, set result to 0
-      result=0
-    else
-       # ping received, set result to 1
+      # ping received, set result to 1
       result=1
+    else
+       # ping failed, set result to 0
+      result=0
     fi
 
   # get the current timestamp in nanoseconds
