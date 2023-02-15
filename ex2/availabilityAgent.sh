@@ -6,7 +6,7 @@ do
         while read -r host;
         do
                 p_result=$(ping -c 1 -W 2 "$host" | grep -oP '(?<=time=)\d+(\.\d+)?')
-                if [[ "$p_result" -eq "" ]]; then
+                if [[ -z "$p_result" ]]; then
                         p_result=0
                 fi
 
