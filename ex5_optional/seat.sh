@@ -1,72 +1,97 @@
 LOCK_TTL=600
 HALL_CAPACITY=300
+LOCK=1
+SOLD=2
+BOOK=1
 
-# This below example can help you understand how to communicate with Redis
-#
-#  echo "set mykey myval EX 6" | redis-cli -u redis://localhost:6378/0
-#
-# In general
-#
-#  echo "[REDIS COMMAND]" | redis-cli -u redis://localhost:6378/0
+function check_seat {
+  local show=$1
+  local name=$2
+  local seat=$3
+  local book=$4
 
+  seat_name=$(echo "GET $show:$seat:$SOLD" | redis-cli -u redis://localhost:6378/0)
+  if [[ "$seat_name" != 0 && "$seat_name" != "" ]]; then
+   echo "Locking failed, seat is already booked"
+   exit 1
+  fi
 
-# This function lock a name ($2, string) and seat ($3, integer) in show ($1, string).
-# Locking is possible only if this seat was not locked by other customer name.
-# The lock should be expired automatically after $LOCK_TTL seconds.
-# Upon success, print "The seat was locked"
-# If this seat was locked by another customer, print "This seat is currently locked by other customer, try again later"
-# If this seat is already booked, print "Locking failed, seat is already booked"
-#
-# Note that seat number must not exceed HALL_CAPACITY, otherwise the program exits with status 5
+  seat_name=$(echo "GET $show:$seat:$LOCK" | redis-cli -u redis://localhost:6378/0)
+  if [[ "$seat_name" = "" && "$book" = 1 ]]; then
+   echo "Booking failed, please lock the seat before"
+   exit 1
+  elif [[ "$seat_name" != "" && "$seat_name" != "$name" ]]; then
+   echo "This seat is currently locked by other customer, try again later"
+   exit 1
+  fi
+}
+
 function lock {
   local show=$1
   local name=$2
   local seat=$3
 
-  # your implementation here ...
+  check_seat "$show" "$name" "$seat"
 
+  lock_sts=$(echo "SET $show:$seat:$LOCK $name NX EX $LOCK_TTL" | redis-cli -u redis://localhost:6378/0)
+  if [[ "$lock_sts" = "OK" ]] ; then
+    echo "Seat was locked"
+    exit 0
+  fi
 }
 
-# This function book a name ($2, string) and seat ($3, integer) in show ($1, string).
-# Booking is possible only if $2 was locked the seat before for this show.
-# Upon success, print "Successfully booked this seat!"
-# If the customer was not locked this seat before, print "Booking failed, please lock the seat before"
-#
-# Note that seat number must not exceed HALL_CAPACITY, otherwise the program exits with status 5
 function book {
   local show=$1
   local name=$2
   local seat=$3
 
-  # your implementation here ...
+  check_seat "$show" "$name" "$seat" "$BOOK"
 
+  sold_sts=$(echo "SET $show:$seat:$SOLD $name NX " | redis-cli -u redis://localhost:6378/0)
+  if [[ "$sold_sts" = "OK" ]]; then
+    echo "Successfully booked this seat!"
+    exit 0
+  fi
 }
 
-
-# This function releases a lock of name ($2), seat ($3) for show ($1).
-# If this seat was not locked, or was locked by another customer, the function does nothing.
-# If the seat has been released, print "The seat was released"
-#
-# Note that seat number must not exceed HALL_CAPACITY, otherwise the program exits with status 5
 function release {
   local show=$1
   local name=$2
   local seat=$3
-
-  # your implementation here ...
-
+  seat_name=$(echo "GET $show:$seat:$LOCK " | redis-cli -u redis://localhost:6378/0)
+  if [[ "$seat_name" = "$name" ]]; then
+      echo "GETDEL $show:$seat:$LOCK " | redis-cli -u redis://localhost:6378/0 1>/dev/null
+  fi
 }
 
-
-# OPTIONAL
-# This function releases all existed locks for show ($1).
 function reset {
   local show=$1
-
-  # your implementation here ...
-
+  for ((i=1;i<=HALL_CAPACITY;i++)); do
+    echo "GETDEL $show:$i:$LOCK " | redis-cli -u redis://localhost:6378/0 1>/dev/null
+  done
 }
 
+function display {
+  local show=$1
+  for ((i=1;i<=HALL_CAPACITY;i++)); do
+    seat_name=$(echo "GET $show:$i:$SOLD" | redis-cli -u redis://localhost:6378/0)
+    if [[ "$seat_name" = 0 || "$seat_name" = "" ]]; then
+      seat_name=$(echo "GET $show:$i:$LOCK" | redis-cli -u redis://localhost:6378/0)
+      if [[ "$seat_name" != 0 && "$seat_name" != "" ]]; then
+        echo "Record - show=$show seat=$i status=LOCK name=$seat_name"
+      fi
+    else
+       echo "Record - show=$show seat=$i status=SOLD name=$seat_name"
+   fi
+  done
+}
+
+#  main **
+
+if  [[ "$4" -gt "$HALL_CAPACITY" ]]; then
+    echo "wrong seat $4, only $HALL_CAPACITY seats in the Hall "
+    exit 5
+fi
 
 if [[ "$1" = "book" ]]; then
   book "${@:2}"
@@ -76,4 +101,6 @@ elif [[ "$1" = "release" ]]; then
   release "${@:2}"
 elif [[ "$1" = "reset" ]]; then
   reset "${@:2}"
+elif [[ "$1" = "display" ]]; then
+  display "${@:2}"
 fi
