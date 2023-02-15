@@ -35,7 +35,7 @@ function lock {
 
   lock_sts=$(echo "SET $show:$seat:$LOCK $name NX EX $LOCK_TTL" | redis-cli -u redis://localhost:6378/0)
   if [[ "$lock_sts" = "OK" ]] ; then
-    echo "Seat was locked"
+    echo "The seat was locked"
     exit 0
   fi
 }
