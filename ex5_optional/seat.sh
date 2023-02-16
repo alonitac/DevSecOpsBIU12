@@ -37,6 +37,8 @@ function lock {
   if [[ "$lock_sts" = "OK" ]] ; then
     echo "The seat was locked"
     exit 0
+  elif [[ "$lock_sts" = "$name" || "$lock_sts" = "" ]]; then
+    echo "The seat is locked by you already"
   fi
 }
 
@@ -58,18 +60,30 @@ function release {
   local show=$1
   local name=$2
   local seat=$3
-  seat_name=$(echo "GET $show:$seat:$LOCK " | redis-cli -u redis://localhost:6378/0)
+  seat_name=$( echo "GET $show:$seat:$LOCK" | redis-cli -u redis://localhost:6378/0)
   if [[ "$seat_name" = "$name" ]]; then
-      echo "GETDEL $show:$seat:$LOCK " | redis-cli -u redis://localhost:6378/0 1>/dev/null
+      tmp=$( echo "EXPIRE $show:$seat:$LOCK 0 " | redis-cli -u redis://localhost:6378/0 )
+      echo "The seat was released"
   fi
 }
 
 function reset {
   local show=$1
   for ((i=1;i<=HALL_CAPACITY;i++)); do
-    echo "GETDEL $show:$i:$LOCK " | redis-cli -u redis://localhost:6378/0 1>/dev/null
+    echo "GETDEL $show:$i:$LOCK " | redis-cli -u redis://localhost:6378/0
   done
 }
+
+function delete_all {
+  local show=$1
+  for ((i=1;i<=HALL_CAPACITY;i++)); do
+     tmp=$( echo "GETDEL $show:$i:$LOCK " | redis-cli -u redis://localhost:6378/0 )
+     tmp=$( echo "GETDEL $show:$i:$SOLD" | redis-cli -u redis://localhost:6378/0 )
+  done
+  echo ""
+  echo "all seat are free for show  $show"
+}
+
 
 function display {
   local show=$1
@@ -103,4 +117,6 @@ elif [[ "$1" = "reset" ]]; then
   reset "${@:2}"
 elif [[ "$1" = "display" ]]; then
   display "${@:2}"
+elif [[ "$1" = "delete_all" ]]; then
+  delete_all "${@:2}"
 fi
