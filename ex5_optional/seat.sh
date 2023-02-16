@@ -60,9 +60,10 @@ function release {
   local show=$1
   local name=$2
   local seat=$3
+
   seat_name=$(echo "GET $show:$seat:$LOCK" | redis-cli -u redis://localhost:6378/0)
   if [[ "$seat_name" = "$name" ]]; then
-      tmp1=$(echo "SET $show:$seat:$LOCK ex 0 " | redis-cli -u redis://localhost:6378/0 )
+      tmp1=$(echo "GETDEL $show:$seat:$LOCK" | redis-cli -u redis://localhost:6378/0 )
       echo "The seat was released"
   fi
 }
