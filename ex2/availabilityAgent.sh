@@ -1,6 +1,6 @@
 #!/bin/bash
-DB_USERNAME=admin
-DB_PASSWORD=12345678
+DB_USERNAME="admin"
+DB_PASSWORD="12345678"
 TEST_PERIODICITY=5
 TEST_PERIODICITY=5
 # While loop read the each line in hosts
