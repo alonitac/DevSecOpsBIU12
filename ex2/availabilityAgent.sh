@@ -6,7 +6,6 @@ export DB_PASSWORD=12345678
 
 while true
 do
-  # Your code here....
 while read line
 do
   RESULT=$(ping -c 1 -W 2 "$line"| grep -c "icmp_seq=1")
@@ -22,4 +21,5 @@ do
 done < hosts
 echo
 sleep $TEST_PERIODICITY
+
 done
