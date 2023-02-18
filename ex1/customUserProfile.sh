@@ -1,10 +1,9 @@
 # your solution here...
 #!bin/bash
 
-me="$(whoami)"
-echo "hello $me"
+echo "Hello $USER"
 echo -e '\n'
-echo "$(/usr/lib/update-notifier/apt-check --human-readable)"
+/usr/lib/update-notifier/apt-check --human-readable
 echo -e '\n'
 
 t=$HOME/.token
