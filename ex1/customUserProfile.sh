@@ -1,5 +1,7 @@
 # your solution here...
 #!bin/bash
+sudo apt-get update
+
 echo "Hello" $USER
 /usr/lib/update-notifier/apt-check --human-readable
 
