@@ -9,7 +9,7 @@ echo $serverCert >> cert.pem
 
 #echo "serverVersion = $serverVersion    SESSION_ID=$SESSION_ID="
 
-# wget https://devops-may22.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem
+wget https://devops-may22.s3.eu-north-1.amazonaws.com/cert-ca-aws.pem
 
 VERIFICATION_RESULT=$( openssl verify -CAfile cert-ca-aws.pem cert.pem )
 
