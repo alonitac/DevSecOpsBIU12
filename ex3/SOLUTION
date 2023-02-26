@@ -1,27 +1,34 @@
 # Git Basics (commit, diff, branches)
 
-1.
-2.
-3.
+1. echo "1" >> abc.txt
+2. Red
+3. Red
 4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13.
-14.
-15.
-16.
+
+Add: `git add abc.txt`
+Color in `git status` is Green
+Color in PyCharm in Green
+
+Commit: `git commit -m "ans 4"`
+
+5. echo "2" >> abc.txt
+6. Same red color. But now the file abc.txt is already tracked by Git. In PyCharm the file color is blue.
+7. git diff main
+8. Because there is no any difference between the index and the HEAD - as we have not added the file abc.txt to index yet.
+9. Because there is no branch, tag or any revision called `stage2`.
+10. git add abc.txt
+11. `git diff` prints nothing since there are no changes between the index and the working tree.
+12. git diff --staged
+13. echo "3" >> abc.txt
+14. No, the command "git diff --staged" shows the differences between the index and HEAD (branch main in our case), while the command "git diff main" would show the changes between the working tree and the main branch.
+15. The green line indicates that there are changes in the working tree that should be can be added to the index. The red line indicates that there are changes in the index that are ready to be committed. Both changes belong to the same file - abc.txt.
+16. git reset --hard
 
 # Resolve conflicts
 
-1.
-2.
-3.
+1. git branch -a
+2. git checkout -b feature/lambda_migration
+3. git merge feature/version1
 4.
 5.
    1.
@@ -29,42 +36,58 @@
    3.
    4.
    5.
-6.
+6. Check for added commits using `git log`. Yes there are added commit with the following message:
+
+    Merge branch 'feature/version2' into feature/lambda_migration
+
+    # Conflicts:
+    #       app.py
+
+This commit is frequently called "merge commit".
+
+
 
 # Cherry picking
 
-1.
+1. git checkout main; git checkout -b feature/lambda_migration2
 2.
 3.
     1.
     2.
-4.
-5.
+4. The file ".env" and "config.json" have been added after cherry picking.
+5. You should definitely cherry-pick commits in order since changes apply in the same order the commits are picked.
+
+For example, commit A creates file xyz.txt while commit B modifies this file. The changes are not going to apply if we cherry-pick commit B than A.
 
 
 # Changes in working tree and switch branches
 
-1.
-2.
-3.
+1. git checkout feature/lambda_migration2
+2. echo "test" > take.txt; git add take.txt
+3. git checkout dev
+
+error: Your local changes to the following files would be overwritten by checkout
+
+Git suggests either to commit the changes before we checkout to a new branch, or to use `git stash` to stash the changes.
+
 4.
-5.
-6.
+5. No, the changes have been discarded, as expected.
+6. Force Checkout removes any change in the working tree before switching to the other branch.
 
 # Reset
 
-1.
+1. git checkout reset_question
 2.
-   1.
-   2.
-   3.
-   4.
-3.
+   1. Resets the git tree to the commit before the last commit. The last commit (the one of file 10.txt) has been removed. The change has "moved" to the working tree and has indexed so it's ready to be committed again.
+   2. Resets the git tree to the commit before the last commit. The last commit (the one of file 9.txt) has been removed. The change has "moved" to the working tree and the index was reset (so now both 9.txt and 10.txt are untracked).
+   3. Resets the git tree to the commit before the last commit. The last commit (the one of file 8.txt) has been removed. The change can't be found either in the index or the working tree.
+   4. Reverts the commit before the last commit. The last commit is the one of file 7.txt, so the command reverts the one of file 6.txt.
+3. HEAD~1 is a pointer to the commit right before the commit HEAD is pointing to.
 
 
 # Working with GitHub
 
 1.
-2.
-3.
-4.
+2. git remote add origin https://github.com/alonitac/ex3_repo
+3. git push origin main
+
