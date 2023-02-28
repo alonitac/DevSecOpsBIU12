@@ -1,4 +1,10 @@
-## Debugging scripts
+# Debugging scripts
+
+## Using `echo`
+
+Using the "echo" command in bash scripts is a useful debugging tool. It allows you to print output to the terminal, which can help you understand the flow of the script and identify errors. By adding "echo" statements in strategic places, you can observe the values of variables and see how the script is executing.
+
+## Using `bash -x`
 
 Bash provides extensive debugging features. The most common is to start up the subshell with the `-x` option, which
 will run the entire script in debug mode.

@@ -14,9 +14,23 @@ Collectively, these are identified as NoSQL.
 
 ![](../.img/nosqldb.png)
 
+## Common NoSQL databases
+
+![](../.img/nosqldb2.png)
+
 ## Time-series Database (InfluxDB)
 
-TBD
+![](../.img/influxdb.png)
+
+Time-series (סדרה עתית) is a sequence of data points, consisting of successive measurements made over a time interval.
+
+Time-series databases are used in statistics, finance, IoT etc...
+
+Example of time-series data is a stock price chart:
+
+![](../.img/sp500.png)
+
+InfluxDB is an open source DB designed to handle time-series data.
 
 ## Key-value Store (Redis)
 
@@ -26,6 +40,72 @@ TBD
 - Offers high performance - can store hundreds of gigabytes of data and millions of requests per second
 - Data is stored as key-value
 
+
+### Performance
+
+Because memory access is faster than disk access (0.1 μs vs. 10 ms), Redis performs extremely well when compared to disk-‐centric databases.
+
+Common range from 5000 to
+120,000 rps for basic ops
+GET/SET/LPUSH/LPOP, etc...
+
+For more information explore the [`redis-benchmark` ](https://redis.io/docs/reference/optimization/benchmarks/)
+
+### In-memory? What happens when my server is getting off?
+
+Redis has two different forms of persistence available for writing in-memory data to disk in a compact format.
+
+The first
+method is a point-in-time dump either when certain conditions are met (a number of writes in a given period) or when one of the two dump-to-disk commands is called.
+
+The other method uses an append-only file that writes every command that alters data
+in Redis to disk as it happens.
+
+### Atomicity
+
+Redis operations are atomic. It is not possible that a request issued by another client is served in the middle of the execution of another operation.
+
+Redis server core is single threaded, so, for example, nothing will run until a given SET command has completed. That makes
+
+```
+# or SETNX {key} {value} EX {expiry}
+
+SET {key} {value} EX {expiry} NX
+```
+
+ideal for simple locking implementation.
+
+### High availability
+
+Redis supports master/slave
+replication where slaves connect to the master and receive an initial copy of the full
+database. As writes are performed on the master, they’re sent to all connected slaves
+for updating the slave datasets in real time.
+
+![](../.img/rediscluster.png)
+
+[Further reading](https://redis.com/redis-enterprise/technology/redis-enterprise-cluster-architecture/)
+
+### Language Support
+Ruby, Python, PHP, Erlang,
+Tcl, Perl, Lua, Java, Scala,
+Clojure, C#, C/C++,
+JavaScript/Node.js, Haskell,
+IO, Go
+
+## Launch a Redis server
+
+We will user the official Docker image to run a redis instance
+
+```shell
+docker run --rm --name redis -p 6379:6379 redis
+```
+
+We will communicate with the server using `redis-cli` command line tool. Install it by:
+
+```shell
+sudo apt-get install redis-tools
+```
 
 ### Redis data types
 
@@ -158,59 +238,6 @@ redis 127.0.0.1:6379> smembers set-key
 redis 127.0.0.1:6379>
 ```
 
-### Redis commands in bash script
-
-Just use echo with redis-cli like this:
-
-`echo set hello world | redis-cli`
-
-### Performance
-
-Because memory access is faster than disk access (0.1 μs vs. 10 ms), Redis performs extremely well when compared to disk-‐centric databases.
-
-Common range from 5000 to
-120,000 rps for basic ops
-GET/SET/LPUSH/LPOP, etc...
-
-For more information explore the [`redis-benchmark` ](https://redis.io/docs/reference/optimization/benchmarks/)
-
-### In-memory? What happens when my server gets turned off?
-
-Redis has two different forms of persistence available for writing in-memory data to disk in a compact format.
-
-The first
-method is a point-in-time dump either when certain conditions are met (a number of writes in a given period) or when one of the two dump-to-disk commands is called.
-
-The other method uses an append-only file that writes every command that alters data
-in Redis to disk as it happens. 
-
-### Atomicity
-
-Redis operations are atomic. It is not possible that a request issued by another client is served in the middle of the execution of another operation.
-
-Redis server core is single threaded, so, for example, nothing will run until a given SET command has completed. That makes
-
-```
-# or SETNX {key} {value} EX {expiry}
-
-SET {key} {value} EX {expiry} NX
-```
-
-ideal for simple locking implementation.
-
-### High availability
-
-Redis supports master/slave
-replication where slaves connect to the master and receive an initial copy of the full
-database. As writes are performed on the master, they’re sent to all connected slaves
-for updating the slave datasets in real time.
-
-### Language Support
-Ruby, Python, PHP, Erlang,
-Tcl, Perl, Lua, Java, Scala,
-Clojure, C#, C/C++,
-JavaScript/Node.js, Haskell,
-IO, Go
 
 ## Document store (MongoDB)
 
