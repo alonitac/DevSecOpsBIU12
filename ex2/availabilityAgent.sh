@@ -1,11 +1,33 @@
-#!/bin/bash
-while IFS="" read -r p || [ -n "$p" ]
+#!/bin/sh
+
+TEST_PERIODICITY=5
+DB_USERNAME="admin"
+DB_PASSWORD="12345678"
+
+# read each line in hosts
+while true
 do
-  SEC=$(expr $(ping -c 1 -W 2 "$p" | sed -n 's/.*time=\(.*\) ms$/\1/p'))
-  NAN=$(echo $SEC*1000000 | bc)
-  if [[ $NAN ]]; then printf '%s\n' "Test result for $p is 1 at $NAN"
-  else printf '%s\n' "Test result for $p is 0 at $NAN"
+  while read  HOSTS
+    do
+      TEST_TIMESTAMP=$(date +%s%N)
+      ping -c 1 -W 2 "$HOSTS" > /dev/null
+      if [ $? != 0 ]
+        then
+          RESULT="0"
+        else
+          RESULT="1"
+      fi
+
+# DB
+      curl -X POST 'http://localhost:8086/query' -u admin:12345678 --data-urlencode "q=CREATE DATABASE hosts_metrics"
+
+# stdout
+      echo "Test result for $HOSTS is $RESULT  at $TEST_TIMESTAMP"
+      curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_PASSWORD  --data-binary "availability_test,host=$HOSTS value=$RESULT $TEST_TIMESTAMP"
+    done < hosts
+    echo
+
+  sleep "$TEST_PERIODICITY"
 
 
-fi
-done < hosts
+done
