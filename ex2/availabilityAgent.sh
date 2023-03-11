@@ -4,7 +4,7 @@ TEST_PERIODICITY=5
 DB_USERNAME="admin"
 DB_PASSWORD="12345678"
 
-# read each line in hosts
+# read each line in hosts + name update
 while true
 do
   while read  HOSTS
