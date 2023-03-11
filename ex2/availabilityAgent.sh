@@ -2,7 +2,7 @@ TEST_PERIODICITY=5
 
 #!/bin/bash
 
-# Define constants
+# Define constantss
 HOSTS_FILE="hosts"
 TEST_PERIODICITY=5
 DB_USERNAME="admin"
