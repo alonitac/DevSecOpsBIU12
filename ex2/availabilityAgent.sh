@@ -1,39 +1,33 @@
-TEST_PERIODICITY=5
+#!/bin/sh
 
-#!/bin/bash
-
-# Define constantssl
-HOSTS_FILE="hosts"
 TEST_PERIODICITY=5
 DB_USERNAME="admin"
 DB_PASSWORD="12345678"
 
-# Iterate forever
-while true; do
-
-  # Iterate over the lines of the hosts file
-  while read line; do
-    # Trim leading/trailing whitespace
-    line="$(echo -e "${line}" | tr -d '[:space:]')"
-    if [ ! -z "${line}" ]; then
-      # Ping the host and get the result
-      if ping -c 1 -W 2 "${line}" > /dev/null 2>&1; then
-        result=1
-      else
-        result=0
+# read each line in hosts
+while true
+do
+  while read  HOSTS
+    do
+      TEST_TIMESTAMP=$(date +%s%N)
+      ping -c 1 -W 2 "$HOSTS" > /dev/null
+      if [ $? != 0 ]
+        then
+          RESULT="0"
+        else
+          RESULT="1"
       fi
 
-      # Print the test result to stdout
-      echo "Test result for ${line} is ${result} at $(date +%s%N)"
+# DB
+      curl -X POST 'http://localhost:8086/query' -u admin:12345678 --data-urlencode "q=CREATE DATABASE hosts_metrics"
 
-      # Write the test result to InfluxDB
-      TESTED_HOST="$line" RESULT="$result" TEST_TIMESTAMP="$(date +%s%N)" \
-      curl -X POST 'http://localhost:8086/write?db=hosts_metrics' \
-        -u $DB_USERNAME:$DB_PASSWORD \
-        --data-binary "availability_test,host=$TESTED_HOST value=$RESULT $TEST_TIMESTAMP"
-    fi
-  done < "${HOSTS_FILE}"
+# stdout
+      echo "Test result for $HOSTS is $RESULT  at $TEST_TIMESTAMP"
+      curl -X POST 'http://localhost:8086/write?db=hosts_metrics' -u $DB_USERNAME:$DB_PASSWORD  --data-binary "availability_test,host=$HOSTS value=$RESULT $TEST_TIMESTAMP"
+    done < hosts
+    echo
 
-  # Wait for the next iteration
-  sleep ${TEST_PERIODICITY}
+  sleep "$TEST_PERIODICITY"
+
+
 done
