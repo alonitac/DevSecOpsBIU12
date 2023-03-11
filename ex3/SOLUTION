@@ -1,21 +1,21 @@
 # Git Basics (commit, diff, branches)
 
-1.
-2.
-3.
-4.
-5.
-6.
-7.
-8.
-9.
-10.
-11.
-12.
-13.
-14.
-15.
-16.
+1.Created a file called abc
+2.In Git status the file is red
+3.The file in project is red
+4.After using the command "git add abc.txt" the file is green
+5.echo "2" >> abc.txt
+6.No the colors are the same
+7.Git diff main
+8.Because there is nothing on the stage
+9.not a known revision or path in my Git repository
+10.git add abc.txt
+11.It compares the contents of the files in the working tree with either the files in the staging area
+12.Git diff main
+13.echo "3" >> abc.txt
+14.Would git diff --staged and git diff main commands print the same output
+15.Because there is one change to be committed, And one change that is not staged
+16.Git reset
 
 # Resolve conflicts
 
