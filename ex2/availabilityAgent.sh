@@ -2,7 +2,7 @@ TEST_PERIODICITY=5
 
 #!/bin/bash
 
-# Define constantss
+# Define constantssl
 HOSTS_FILE="hosts"
 TEST_PERIODICITY=5
 DB_USERNAME="admin"
